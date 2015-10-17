@@ -1,183 +1,290 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+
+<html lang="en">
+  
 <head>
   <meta charset="utf-8">
   
   <title>React Native Android Setup | Oncemore</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="author" content="Eric">
+  
   <meta name="description" content="**React native 1.0
 
-Error in transformer.js, transformer.js is using some es6 feature which is not supported in node.js 0.12.x, replace those code with es5 syntax can solve the problem
-Can not install">
-<meta property="og:type" content="article">
-<meta property="og:title" content="React Native Android Setup">
-<meta property="og:url" content="http://fantasy8-me.github.io/2015/10/17/React-Native-Android-Setup/index.html">
-<meta property="og:site_name" content="Oncemore">
-<meta property="og:description" content="**React native 1.0
-
-Error in transformer.js, transformer.js is using some es6 feature which is not supported in node.js 0.12.x, replace those code with es5 syntax can solve the problem
-Can not install">
-<meta property="og:updated_time" content="2015-10-17T13:46:07.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React Native Android Setup">
-<meta name="twitter:description" content="**React native 1.0
-
-Error in transformer.js, transformer.js is using some es6 feature which is not supported in node.js 0.12.x, replace those code with es5 syntax can solve the problem
-Can not install">
+Error in transformer.js, transformer.js is using some es6 feature which is not supported in node.js 0.12.x, replace those code wit">
   
   
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-  
-  
-  
+  <meta property="og:title" content="React Native Android Setup"/>
+  <meta property="og:site_name" content="Oncemore"/>
 
-
+  
+    <meta property="og:image" content="undefined"/>
   
 
   
-    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
-    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    <meta http-equiv="Content-Language" content="en"/>
   
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" type="text/css">
+
+  <link href="/img/favicon.png" rel="icon">
+  
+    <link rel="apple-touch-icon" href="/img/apple-icon.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/apple-icon.png">
+    
+
+  <link rel="alternate" href="/atom.xml" title="Oncemore" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  
+  <style type="text/css">
+  /* Tim Pietrusky advanced checkbox hack (Android <= 4.1.2) */
+body{ -webkit-animation: bugfix infinite 1s; }
+@-webkit-keyframes bugfix { from {padding:0;} to {padding:0;} }
+
+  
+
+  
+    article .post-content-index .entry{max-height: 550px; overflow:hidden;}
+  
+</style>
+
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'null', 'auto');
+  ga('send', 'pageview');
+ 
+</script>
+
+
+
+
+  
+    
+      <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400|Playball' rel='stylesheet' type='text/css'>
+    
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.1.min.js"></script>
+
+  
+
+
+
 </head>
 
+
 <body>
-  <div id="wrap">
-    <header id="header">
-  <div id="header-outer" class="outer">
-    <div class="container">
-      <div class="container-inner">
-        <div id="header-title">
-          <h1 class="logo-wrap">
-            <a href="/" class="logo"></a>
-          </h1>
-          
-        </div>
-        <div id="header-inner" class="nav-container">
-          <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
-          <div class="nav-container-inner">
-            <ul id="main-nav">
-              
-            </ul>
-            <nav id="sub-nav">
-              <div id="search-form-wrap">
-                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://fantasy8-me.github.io"></form>
-              </div>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <header id="header" class="inner"><div class="padding">
+	<div class="alignleft logo">
+	  <h1><a href="/">Oncemore</a></h1>
+	</div>
+	<nav id="main-nav" class="alignright">
+		<input type="checkbox" id="toggle" />
+		<label for="toggle" class="toggle" data-open="Main Menu" data-close="Close Menu" onclick><i class="fa fa-bars"></i></label>
+	  <ul class="menu">
+	    
+	      <li><a href="/">Home</a></li>
+	    
+	      <li><a href="/archives">Archives</a></li>
+	    
+	    
+	  </ul>
+	</nav>
+	<div class="clearfix"></div>
+</div>
 </header>
-    <div class="container">
-      <div class="main-body container-inner">
-        <div class="main-body-inner">
-          <section id="main">
-            <div class="main-body-header">
+  <div id="page-heading-wrap">
+  	<div class="inner">
+      <div class="padding">
+    		
+          <h1>React Native Android Setup</h1>
+          <ul>
+            <li>
+              <span class="heading-span">Posted on: </span>
+              <time datetime="2015-10-17T13:18:18.000Z">2015-10-17</time>
+            </li>
+            
+              <li>
+                <span class="heading-span">By: </span>
 
-              <h1 class="header">未分类</h1>
-            </div>
-            <div class="main-body-content">
+                
+                  <a href="/">Eric</a>
+                
+
+              </li>
+            
+            <li>
+              <span class="heading-span">With: </span>
               
-  <article id="post-React-Native-Android-Setup" class="article article-single article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-      <!--  -->
-      
-        <header class="article-header">
-          
+            </li>
+          </ul>
+        
+      </div>
+  	</div>
+  </div>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper" class="padding"><article class="post">
   
-    <h1 class="article-title" itemprop="name">
-      React Native Android Setup
-    </h1>
   
-
-        </header>
+    <div class="post-content">
+  
       
-      <p class="article-byline">
-        <a href="/2015/10/17/React-Native-Android-Setup/" class="article-date">
-  <time datetime="2015-10-17T13:18:18.000Z" itemprop="datePublished">2015-10-17</time>
-</a>
-      </p>
-      <div class="article-entry" itemprop="articleBody">
-        <p>**React native 1.0</p>
+      <div class="entry">
+        
+          <p>**React native 1.0</p>
 <ul>
 <li>Error in transformer.js, transformer.js is using some es6 feature which is not supported in node.js 0.12.x, replace those code with es5 syntax can solve the problem</li>
 <li>Can not install apk to device</li>
 <li>adb issue</li>
 </ul>
 
+        
       </div>
-      <footer class="article-footer">
-        <a data-url="http://fantasy8-me.github.io/2015/10/17/React-Native-Android-Setup/" data-id="cifv5z04n0002ksfyr4l7hxpc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+      <footer>
         
-        
-      </footer>
-    </div>
-  </article>
-  
+          
+          
+          <div class="share">
   
 
-            </div>
-          </section>
-          <aside id="sidebar">
-  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
-  <div class="sidebar-top">
-    <p>关注我 :</p>
-    <ul class="social-links">
-      
-    </ul>
-  </div>
-  
     
-<nav id="article-nav">
+
+    
+      <div class="g-plusone"></div>
+
+      <script type="text/javascript">
+        window.___gcfg = {lang: 'en-GB'};
+
+        (function() {
+          var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+          po.src = 'https://apis.google.com/js/platform.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+    
+
+    
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="halfer53">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    
   
-  
-    <a href="/2015/10/17/Hello-Hexo/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <p class="article-nav-title">Hello Hexo</p>
-      <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-    </a>
-  
+</div>
+          
+<nav class="article-nav clearfix">
+ 
+
+<div class="article-next">
+<a href="/2015/10/17/Hello-Hexo/"  title="Hello Hexo">
+ <span>Hello Hexo
+</span>
+<i class="fa fa-long-arrow-right"></i>
+</a>
+</div>
+
 </nav>
 
-  
-  <div class="widgets-container">
-    
-  </div>
-</aside>
-        </div>
-      </div>
+        
+        <div class="clearfix"></div>
+      </footer>
     </div>
-    <footer id="footer">
+</article>
+
+
+<section id="comment">
+  <h2 class="title">留言</h2>
+
   
-  <div class="container">
-    <div class="container-inner">
-      <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
-      <div class="credit">
-        <h1 class="logo-wrap">
-          <a href="/" class="logo"></a>
-        </h1>
-        <p>&copy; 2015 Eric</p>
-        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
-      </div>
-    </div>
-  </div>
-</footer>
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright"><div class="padding">
+	
+	  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜尋">
+    <input type="hidden" name="q" value="site:fantasy8-me.github.io">
+  </form>
+</div>
+	
+	  
+<div class="widget recent-post">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
     
+      <li>
+        <a href="/2015/10/17/React-Native-Android-Setup/">React Native Android Setup</a>
+      </li>
+    
+      <li>
+        <a href="/2015/10/17/Hello-Hexo/">Hello Hexo</a>
+      </li>
+    
+      <li>
+        <a href="/2015/10/17/hello-world/">Hello World</a>
+      </li>
+    
+  </ul>
+</div>
 
-
-  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
-
-
-
-
-
-
-<script src="/js/html-patch.js" type="text/javascript"></script>
-<script src="/js/script.js" type="text/javascript"></script>
-
+	
+	  
+	
+	  
+	
+</div></aside>
+    <div class="clearfix"></div>
   </div>
+  <footer id="footer" class="inner"><div class="padding">
+	<div class="alignleft">
+	  
+	  &copy; 2015 Eric
+	  
+	  Powerd by <a href="http://hexo.io/" target="_blank">hexo</a>
+	  and Theme by <a href="https://github.com/halfer53/metro-light" target="_blank">metro-light</a>
+	</div>
+
+	<div class="alignright">
+		
+		
+		
+		
+		
+		
+		
+	</div>
+
+	<div class="clearfix"></div>
+</div>
+
+<div class="scroll-top"><i class="fa fa-arrow-circle-up"></i></div></footer>
+  
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.0.4/jquery.imagesloaded.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+<script type="text/javascript">
+$(window).scroll(function() {
+
+    if($(this).scrollTop() > 400) {
+        $('.scroll-top').fadeIn(200);
+    } else {
+        $('.scroll-top').fadeOut(200);
+    }
+});
+
+$('.scroll-top').bind('click', function(e) {
+    e.preventDefault();
+    $('body,html').animate({scrollTop:0},200);
+});
+</script>
+
+
 </body>
 </html>
