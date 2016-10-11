@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>mysql-select-update | Oncemore</title>
+
+  
+  <meta name="author" content="Eric">
+  
+
+  
+  <meta name="description" content="http://stackoverflow.com/questions/562693/mysql-update-and-select-in-one-pass
+http://stackoverflow.com/questions/5816062/is-mysql-query-containing-sub">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="mysql-select-update"/>
+
+  <meta property="og:site_name" content="Oncemore"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Oncemore" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Oncemore</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>mysql-select-update</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/09/01/mysql-select-update/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-09-01T02:11:47.000Z">
+          2016-09-01
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p><a href="http://stackoverflow.com/questions/562693/mysql-update-and-select-in-one-pass" target="_blank" rel="external">http://stackoverflow.com/questions/562693/mysql-update-and-select-in-one-pass</a></p>
+<p><a href="http://stackoverflow.com/questions/5816062/is-mysql-query-containing-sub-query-atomic" target="_blank" rel="external">http://stackoverflow.com/questions/5816062/is-mysql-query-containing-sub-query-atomic</a></p>
+<p><a href="http://dev.mysql.com/doc/refman/5.7/en/storage-engines.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/storage-engines.html</a></p>
+<p><a href="http://stackoverflow.com/questions/2950676/difference-between-set-autocommit-1-and-start-transaction-in-mysql-have-i-misse" target="_blank" rel="external">http://stackoverflow.com/questions/2950676/difference-between-set-autocommit-1-and-start-transaction-in-mysql-have-i-misse</a></p>
+<p>关于不同数据库隔离<br><a href="http://blog.csdn.net/dong976209075/article/details/8802778" target="_blank" rel="external">http://blog.csdn.net/dong976209075/article/details/8802778</a></p>
+<p>隔离与锁<br><a href="http://www.zhihu.com/question/23242151/answer/59821385" target="_blank" rel="external">http://www.zhihu.com/question/23242151/answer/59821385</a></p>
+<p>how to make user mysql select for update to lock record<br><a href="http://stackoverflow.com/questions/6066205/when-using-mysqls-for-update-locking-what-is-exactly-locked" target="_blank" rel="external">http://stackoverflow.com/questions/6066205/when-using-mysqls-for-update-locking-what-is-exactly-locked</a></p>
+<p>SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;<br>START TRANSACTION;<br>SELECT * FROM t_intercept where Fevent_id=’2af0000000000002’ FOR UPDATE;<br>UPDATE t_intercept SET Fdeal_by=’ZZZ’ where  Fevent_id=’2af0000000000002’;<br>COMMIT;</p>
+<p><a href="http://dba.stackexchange.com/questions/15854/innodb-row-locking-how-to-implement" target="_blank" rel="external">http://dba.stackexchange.com/questions/15854/innodb-row-locking-how-to-implement</a></p>
+<p>数据库ID 生成策略<br><a href="http://www.ahlinux.com/mysql/11418.html" target="_blank" rel="external">http://www.ahlinux.com/mysql/11418.html</a></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2016 Eric
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

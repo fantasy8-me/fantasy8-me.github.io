@@ -1,0 +1,138 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>gitlab-setup | Oncemore</title>
+
+  
+  <meta name="author" content="Eric">
+  
+
+  
+  <meta name="description" content="Install gitlab docker http://docs.gitlab.com/omnibus/docker/
+Using wrong config of GITLAB_OMNIBUS_CONFIG might cause the service can not start, i.e. c">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="gitlab-setup"/>
+
+  <meta property="og:site_name" content="Oncemore"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Oncemore" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Oncemore</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>gitlab-setup</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/08/18/gitlab-setup/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-08-18T02:47:50.000Z">
+          2016-08-18
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h3 id="Install_gitlab_docker">Install gitlab docker</h3><p> <a href="http://docs.gitlab.com/omnibus/docker/" target="_blank" rel="external">http://docs.gitlab.com/omnibus/docker/</a></p>
+<p>Using wrong config of GITLAB_OMNIBUS_CONFIG might cause the service can not start, i.e. can not access gitlab<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">docker run --detach \</span><br><span class="line">    -<span class="ruby">-hostname <span class="number">192.168</span>.<span class="number">3.105</span> \</span><br><span class="line"></span>    -<span class="ruby">-env <span class="constant">GITLAB_OMNIBUS_CONFIG</span>=<span class="string">"external_url 'http://192.168.3.105:9080'; gitlab_rails['lfs_enabled'] = true;"</span> \</span><br><span class="line"></span>    -<span class="ruby">-publish <span class="number">9443</span><span class="symbol">:</span><span class="number">443</span> --publish <span class="number">9080</span><span class="symbol">:</span><span class="number">80</span> --publish <span class="number">9022</span><span class="symbol">:</span><span class="number">22</span> \</span><br><span class="line"></span>    -<span class="ruby">-name gitlab \</span><br><span class="line"></span>    -<span class="ruby">-restart always \</span><br><span class="line"></span>    -<span class="ruby">-volume /home/reed/docker/gitlab/<span class="symbol">config:</span>/etc/gitlab \</span><br><span class="line"></span>    -<span class="ruby">-volume /home/reed/docker/gitlab/<span class="symbol">logs:</span>/var/log/gitlab \</span><br><span class="line"></span>    -<span class="ruby">-volume /home/reed/docker/gitlab/<span class="symbol">data:</span>/var/opt/gitlab \</span><br><span class="line"></span>    gitlab/gitlab-ce:latest</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker run --detach \</span><br><span class="line">    -<span class="ruby">-hostname <span class="number">192.168</span>.<span class="number">3.105</span> \</span><br><span class="line"></span>    -<span class="ruby">-publish <span class="number">9443</span><span class="symbol">:</span><span class="number">443</span> --publish <span class="number">9080</span><span class="symbol">:</span><span class="number">80</span> --publish <span class="number">9022</span><span class="symbol">:</span><span class="number">22</span> \</span><br><span class="line"></span>    -<span class="ruby">-name gitlab \</span><br><span class="line"></span>    -<span class="ruby">-restart always \</span><br><span class="line"></span>    -<span class="ruby">-volume /home/reed/docker/gitlab/<span class="symbol">config:</span>/etc/gitlab \</span><br><span class="line"></span>    -<span class="ruby">-volume /home/reed/docker/gitlab/<span class="symbol">logs:</span>/var/log/gitlab \</span><br><span class="line"></span>    -<span class="ruby">-volume /home/reed/docker/gitlab/<span class="symbol">data:</span>/var/opt/gitlab \</span><br><span class="line"></span>    gitlab/gitlab-ce:latest</span><br></pre></td></tr></table></figure>
+<p>sudo gitlab-rake gitlab:env:info</p>
+<p>docker-compose version<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">gitlab:</span><br><span class="line">  image: 'gitlab/gitlab-ce'</span><br><span class="line">  restart: always</span><br><span class="line">  hostname: 'gitlab.reedsec.com'</span><br><span class="line">  environment:</span><br><span class="line">    -<span class="ruby"> <span class="constant">GITLAB_OMNIBUS_CONFIG</span><span class="symbol">:</span> |</span><br><span class="line"></span>      external_url 'https://gitlab.reedsec.com:9443'</span><br><span class="line">      gitlab_rails['lfs_enabled'] = true</span><br><span class="line">      # Add any other gitlab.rb configuration options</span><br><span class="line">  ports:</span><br><span class="line">    -<span class="ruby"> <span class="string">'9443:443'</span></span><br><span class="line"></span>    -<span class="ruby"> <span class="string">'9080:80'</span></span><br><span class="line"></span>    -<span class="ruby"> <span class="string">'9022:22'</span></span><br><span class="line"></span>  volumes:</span><br><span class="line">    -<span class="ruby"> <span class="string">'/home/reed/docker/gitlab/config:/etc/gitlab'</span></span><br><span class="line"></span>    -<span class="ruby"> <span class="string">'/home/reed/docker/gitlab/logs:/var/log/gitlab'</span></span><br><span class="line"></span>    -<span class="ruby"> <span class="string">'/home/reed/docker/gitlab/data:/var/opt/gitlab'</span></span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Migrate_to_gitlab_docker">Migrate to gitlab docker</h3><p> <a href="https://blog.jscrambler.com/migrating-your-gitlab-infrastructure-into-docker/" target="_blank" rel="external">https://blog.jscrambler.com/migrating-your-gitlab-infrastructure-into-docker/</a></p>
+<ul>
+<li><p>we need to create the backup, to tell the backup path, checkout <code>config/gitlab.yml</code>(<code>embedded/service/gitlab-rails/config/gitlab.yml</code>) <a href="https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/raketasks/backup_restore.md" target="_blank" rel="external">https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/raketasks/backup_restore.md</a><br>Usually in /var/opt/gitlab/backups</p>
+</li>
+<li><p>fdsf</p>
+</li>
+</ul>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2016 Eric
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
