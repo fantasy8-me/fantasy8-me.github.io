@@ -59,15 +59,15 @@
 
   
     
-    <h3 class="article-title"><a href="/2016/10/11/node-env-setup/"><span>node-env-setup</span></a></h3>
+    <h3 class="article-title"><a href="/2016/11/22/docker-resouce-managment/"><span>docker-resouce-managment</span></a></h3>
     
   
 
   <div class="article-top-meta">
     <span class="posted-on">
-      <a href="/2016/10/11/node-env-setup/" rel="bookmark">
-        <time class="entry-date published" datetime="2016-10-11T08:30:28.000Z">
-          2016-10-11
+      <a href="/2016/11/22/docker-resouce-managment/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-11-22T06:04:56.000Z">
+          2016-11-22
         </time>
       </a>
     </span>
@@ -79,8 +79,7 @@
   <div class="article-content">
     <div class="entry">
       
-        <h3 id="如何加速phantomjs的下载">如何加速phantomjs的下载</h3><p>参考“<a href="https://cnodejs.org/topic/538ed941c3ee0b5820889f66”" target="_blank" rel="external">https://cnodejs.org/topic/538ed941c3ee0b5820889f66”</a></p>
-<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PHANTOMJS_CDNURL=<span class="attribute">https</span>:<span class="regexp">//</span><span class="built_in">npm</span>.taobao.org<span class="regexp">/dist/phantomjs npm install phantomjs --registry=https:/</span>/registry.<span class="built_in">npm</span>.taobao.org --<span class="literal">no</span>-proxy</span><br></pre></td></tr></table></figure>
+        
       
     </div>
 
@@ -105,15 +104,15 @@
 
   
     
-    <h3 class="article-title"><a href="/2016/10/11/create-react-app/"><span>create-react-app</span></a></h3>
+    <h3 class="article-title"><a href="/2016/11/21/node-package-management/"><span>node-package-management</span></a></h3>
     
   
 
   <div class="article-top-meta">
     <span class="posted-on">
-      <a href="/2016/10/11/create-react-app/" rel="bookmark">
-        <time class="entry-date published" datetime="2016-10-11T07:36:08.000Z">
-          2016-10-11
+      <a href="/2016/11/21/node-package-management/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-11-21T08:21:26.000Z">
+          2016-11-21
         </time>
       </a>
     </span>
@@ -125,19 +124,12 @@
   <div class="article-content">
     <div class="entry">
       
-        <p>What is Create React App? 就是 <a href="https://github.com/facebookincubator/create-react-app" target="_blank" rel="external">create-react-app</a></p>
-<p>为什么有这么多的<code>boilerplate</code>, <code>starter</code> project, facebook还要弄一个半官方的模版项目?</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">Create</span> React apps <span class="keyword">with</span> <span class="keyword">no</span> <span class="keyword">build</span> configuration.</span><br><span class="line"></span><br><span class="line">创建一个不含“<span class="keyword">build</span> configuration”的React程序</span></span><br></pre></td></tr></table></figure>
-<p>什么是build configuration, 就是一开始用来帮助你提高效率，优化流程，但最后你又发现你看不明白的那些像程序又像配置的东西</p>
-<p>比如说像下面这些简单的<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"dev"</span>: <span class="string">"webpack-dev-server --config webpack/webpack-dev-server.config.js --progress"</span>,</span><br><span class="line">  <span class="string">"build"</span>: <span class="string">"NODE_ENV=production webpack --config webpack/webpack-production.config.js --progress --colors"</span>,</span><br><span class="line">  <span class="string">"docker-push"</span>: <span class="string">"docker push 192.168.3.105:6666/reedsec-dashboard_cust_wr"</span>,</span><br><span class="line">  <span class="string">"buildInt"</span>: <span class="string">"NODE_ENV=production APP_ENV=integration webpack --config webpack/webpack-production.config.js --progress --colors"</span>,</span><br><span class="line">  <span class="string">"lint"</span>: <span class="string">"eslint src &amp;&amp; echo \"</span>eslint: <span class="keyword">no</span> lint errors\<span class="string">""</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
-<p>其实也不简单：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line">const webpack = require(<span class="string">'webpack'</span>);</span><br><span class="line">const path = require(<span class="string">'path'</span>);</span><br><span class="line">const buildPath = path.resolve(__dirname, <span class="string">'../build'</span>);</span><br><span class="line">const nodeModulesPath = path.resolve(__dirname, <span class="string">'../node_modules'</span>);</span><br><span class="line">const ExtractTextPlugin = require(<span class="string">'extract-text-webpack-plugin'</span>);</span><br><span class="line">const extractCSS = <span class="keyword">new</span> ExtractTextPlugin(<span class="string">'pleasewait/please-wait.css'</span>);</span><br><span class="line">const extractJS = <span class="keyword">new</span> ExtractTextPlugin(<span class="string">'pleasewait/please-wait.min.js'</span>);</span><br><span class="line">const autoprefixer = require(<span class="string">'autoprefixer'</span>);</span><br><span class="line"></span><br><span class="line">const config = &#123;</span><br><span class="line">  <span class="comment">// Entry points to the project</span></span><br><span class="line"><span class="label">  entry:</span> &#123;</span><br><span class="line"><span class="label">    app:</span> [</span><br><span class="line">      <span class="string">'webpack/hot/dev-server'</span>,</span><br><span class="line">      <span class="string">'webpack/hot/only-dev-server'</span>,</span><br><span class="line">      path.join(__dirname, <span class="string">'../src/main.js'</span>)</span><br><span class="line">    ],</span><br><span class="line"><span class="label">    vender:</span> [</span><br><span class="line">      <span class="string">'react'</span>,</span><br><span class="line">      <span class="string">'material-ui'</span>,</span><br><span class="line">      <span class="string">'react-flexbox-grid'</span>,</span><br><span class="line">      <span class="string">'react-redux'</span>,</span><br><span class="line">      <span class="string">'react-ace'</span>,</span><br><span class="line">      <span class="string">'classnames'</span>,</span><br><span class="line">      <span class="string">'react-dom'</span>,</span><br><span class="line">      <span class="string">'react-router'</span>,</span><br><span class="line">      <span class="string">'redux'</span>,</span><br><span class="line">      <span class="string">'superagent'</span></span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line"><span class="label">  debug:</span> <span class="literal">false</span>,</span><br><span class="line"><span class="label">  resolve:</span> &#123;</span><br><span class="line"><span class="label">    modulesDirectories:</span> [</span><br><span class="line">      <span class="string">'node_modules'</span>,</span><br><span class="line">      <span class="string">'src'</span></span><br><span class="line">    ],</span><br><span class="line"><span class="label">    extensions:</span> [<span class="string">''</span>, <span class="string">'.json'</span>, <span class="string">'.js'</span>, <span class="string">'.jsx'</span>]</span><br><span class="line">  &#125;,</span><br><span class="line"><span class="label">  devtool:</span> <span class="literal">false</span>,</span><br><span class="line"><span class="label">  output:</span> &#123;</span><br><span class="line"><span class="label">    path:</span> buildPath, <span class="comment">// Path of output file</span></span><br><span class="line"><span class="label">    filename:</span> <span class="string">'[name].js'</span>,</span><br><span class="line"><span class="label">    publicPath:</span> <span class="string">'http://localhost:3000/assets/'</span></span><br><span class="line">  &#125;,</span><br><span class="line"><span class="label">  plugins:</span> [</span><br><span class="line">    <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(&#123;</span><br><span class="line"><span class="label">      name:</span> <span class="string">'vender'</span>,</span><br><span class="line"><span class="label">      minChunks:</span> Infinity</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> webpack.HotModuleReplacementPlugin(),</span><br><span class="line">    <span class="comment">// Allows error warnings but does not stop compiling. Will remove when eslint is added</span></span><br><span class="line">    <span class="keyword">new</span> webpack.NoErrorsPlugin(),</span><br><span class="line">    extractCSS,</span><br><span class="line">    extractJS</span><br><span class="line">  ],</span><br><span class="line"><span class="label">  module:</span> &#123;</span><br><span class="line"><span class="label">    loaders:</span> [</span><br><span class="line">      &#123; <span class="string">test:</span> <span class="regexp">/please-wait\.css$/</span>, <span class="string">loader:</span> extractCSS.extract(<span class="string">'raw'</span>), <span class="string">include:</span> <span class="regexp">/please-wait/</span>&#125;,</span><br><span class="line">      &#123; <span class="string">test:</span> <span class="regexp">/please-wait\.min\.js$/</span>, <span class="string">loader:</span> extractJS.extract(<span class="string">'raw'</span>), <span class="string">include:</span> <span class="regexp">/please-wait/</span>&#125;,</span><br><span class="line">      &#123; <span class="string">test:</span> <span class="regexp">/\.js$/</span>, <span class="string">loaders:</span> [<span class="string">'react-hot'</span>, <span class="string">'babel-loader'</span>], <span class="string">exclude:</span> [nodeModulesPath] &#125;,</span><br><span class="line">      &#123; <span class="string">test:</span> <span class="regexp">/\.css$/</span>, <span class="string">loader:</span> <span class="string">'style!css?modules'</span>, <span class="string">include:</span> <span class="regexp">/flexboxgrid/</span> &#125;,</span><br><span class="line">      &#123; <span class="string">test:</span> <span class="regexp">/\.css$/</span>, <span class="string">loader:</span> <span class="string">'style!css'</span>, <span class="string">include:</span> <span class="regexp">/react-dropzone-component/</span> &#125;,</span><br><span class="line">      &#123; <span class="string">test:</span> <span class="regexp">/\.less$/</span>, <span class="string">loader:</span> <span class="string">'style!css?importLoaders=2&amp;sourceMap!postcss-loader!less?outputStyle=expanded&amp;sourceMap'</span>, <span class="string">exclude:</span> [nodeModulesPath] &#125;,</span><br><span class="line">      &#123; <span class="string">test:</span> <span class="regexp">/\.png(\?v=\d+\.\d+\.\d+)?$/</span>, <span class="string">loader:</span> <span class="string">'url?limit=10000&amp;minetype=application/octet-stream'</span>&#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line"><span class="label">  postcss:</span> [ autoprefixer(&#123; <span class="string">browsers:</span> [<span class="string">'last 2 versions'</span>] &#125;) ],</span><br><span class="line">  <span class="comment">// eslint config options. Part of the eslint-loader package</span></span><br><span class="line"><span class="label">  eslint:</span> &#123;</span><br><span class="line"><span class="label">    configFile:</span> <span class="string">'.eslintrc'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// Server Configuration options</span></span><br><span class="line"><span class="label">  devServer:</span> &#123;</span><br><span class="line"><span class="label">    contentBase:</span> <span class="string">'src/www'</span>, <span class="comment">// Relative directory for base of server</span></span><br><span class="line"><span class="label">    devtool:</span> <span class="string">'eval'</span>,</span><br><span class="line"><span class="label">    hot:</span> <span class="literal">true</span>, <span class="comment">// Live-reload</span></span><br><span class="line"><span class="label">    inline:</span> <span class="literal">true</span>,</span><br><span class="line"><span class="label">    noInfo:</span> <span class="literal">false</span>,</span><br><span class="line"><span class="label">    lazy:</span> <span class="literal">false</span>,</span><br><span class="line"><span class="label">    quite:</span> <span class="literal">false</span>,</span><br><span class="line"><span class="label">    port:</span> <span class="number">3000</span>, <span class="comment">// Port Number</span></span><br><span class="line"><span class="label">    host:</span> <span class="string">'0.0.0.0'</span>, <span class="comment">// Change to '0.0.0.0' for external facing server</span></span><br><span class="line"><span class="label">    historyApiFallback:</span> <span class="literal">true</span>,</span><br><span class="line"><span class="label">    publicPath:</span> <span class="string">'http://localhost:3000/assets/'</span>,</span><br><span class="line"><span class="label">    progress:</span> <span class="literal">true</span>,</span><br><span class="line"><span class="label">    stats:</span> &#123;</span><br><span class="line"><span class="label">      assets:</span> <span class="literal">true</span>,</span><br><span class="line"><span class="label">      colors:</span> <span class="literal">true</span>,</span><br><span class="line"><span class="label">      version:</span> <span class="literal">false</span>,</span><br><span class="line"><span class="label">      hash:</span> <span class="literal">true</span>,</span><br><span class="line"><span class="label">      timings:</span> <span class="literal">true</span>,</span><br><span class="line"><span class="label">      chunks:</span> <span class="literal">true</span>,</span><br><span class="line"><span class="label">      chunkModules:</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">module.exports = config;</span><br></pre></td></tr></table></figure></p>
-<p>还有更复杂的就不说，反正前端有一堆building的lib, 不同风格的building configuraiton 更是不计其数。</p>
-<p>如果’create-react-app’ 能解决这个痛点，倒是很不错的。</p>
-<p>主页的Readme中也有详细提及设计哲学，以及问什么要用它</p>
+        <p>##Yarn, 更好的nodejs包管理工具</p>
 <ol>
-<li>单一依赖，默认情况下，<code>react-scripts</code>是唯一的依赖， 其它像webpack, babel都会由<code>react-scripts</code>间接引入</li>
-<li>无需配置，实际是把大部分配置隐藏在 <code>react-scripts</code> 之中</li>
+<li>方便lock version, npm 的shrinkwrap有类似的功能， 但没yarn方便</li>
+<li>快，就是快<br><a href="https://code.facebook.com/posts/1840075619545360" target="_blank" rel="external">https://code.facebook.com/posts/1840075619545360</a></li>
 </ol>
+<p><a href="https://yarnpkg.com/en/docs/migrating-from-npm" target="_blank" rel="external">https://yarnpkg.com/en/docs/migrating-from-npm</a></p>
 
       
     </div>
@@ -149,13 +141,6 @@
 
     
 
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/tags/react-js/">react.js</a>
-    </span>
     
 
     </div>
@@ -170,15 +155,15 @@
 
   
     
-    <h3 class="article-title"><a href="/2016/10/10/docker-lambda-microservices/"><span>docker-lambda-microservices</span></a></h3>
+    <h3 class="article-title"><a href="/2016/11/17/node-stream/"><span>node-stream</span></a></h3>
     
   
 
   <div class="article-top-meta">
     <span class="posted-on">
-      <a href="/2016/10/10/docker-lambda-microservices/" rel="bookmark">
-        <time class="entry-date published" datetime="2016-10-10T09:27:35.000Z">
-          2016-10-10
+      <a href="/2016/11/17/node-stream/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-11-17T07:18:31.000Z">
+          2016-11-17
         </time>
       </a>
     </span>
@@ -190,10 +175,9 @@
   <div class="article-content">
     <div class="entry">
       
-        <h2 id="Compare_between_Lambda_and_Docker,_about_running_an_microservice">Compare between Lambda and Docker, about running an microservice</h2><p><a href="https://www.linkedin.com/pulse/docker-vs-aws-lambda-microservices-alan-ho" target="_blank" rel="external">docker vs lambda</a></p>
-<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The first API request <span class="keyword">is</span> always going <span class="keyword">to</span> <span class="keyword">take</span> a <span class="built_in">long</span> time because AWS lambda has <span class="keyword">to</span> load the underlying code libraries <span class="keyword">into</span> memory<span class="comment">'</span></span><br><span class="line"></span><br><span class="line">Therefore <span class="keyword">for</span> very low traffic scenarios, AWS Lambda could have lots <span class="keyword">of</span> variable performance.</span><br></pre></td></tr></table></figure>
-<h2 id="We_can_implement_lambda_like_feature_by_docker">We can implement lambda like feature by docker</h2><p><a href="https://github.com/fabric8io/funktion" target="_blank" rel="external">funktion is an open source lambda style event driven programming model for Kubernetes</a></p>
-<h2 id="Compare_of_different_docker_scale_framework">Compare of different docker scale framework</h2><p><a href="https://www.oreilly.com/ideas/swarm-v-fleet-v-kubernetes-v-mesos" target="_blank" rel="external">https://www.oreilly.com/ideas/swarm-v-fleet-v-kubernetes-v-mesos</a></p>
+        <p>###node event ‘end’ vs ‘finish’<br>end only triggered by readable stream and ‘finish’ by writable stream</p>
+<p>process.out will not fire ‘finish’ event, though it is writable stream<br><a href="https://nodejs.org/api/process.html#process_process_stdout" target="_blank" rel="external">https://nodejs.org/api/process.html#process_process_stdout</a></p>
+<p>On special case is for transfer stream, it’s <code>finish</code> event fired before <code>end</code><br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">const <span class="keyword">is</span> = fs.createReadStream(<span class="string">'in.txt'</span>);</span><br><span class="line">const ws = fs.createWriteStream(<span class="string">'out.txt'</span>);</span><br><span class="line"></span><br><span class="line">const transformStream = <span class="keyword">new</span> <span class="built_in">require</span>(<span class="string">'stream'</span>).Transform();</span><br><span class="line">transformStream._transform = function transform(chunk, encoding, done) &#123;</span><br><span class="line">  <span class="keyword">this</span>.push(chunk);</span><br><span class="line">  done();</span><br><span class="line">&#125;</span><br><span class="line">transformStream._flush = function transform(done) &#123;</span><br><span class="line">  done();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">is</span>.<span class="literal">on</span>(<span class="string">'end'</span>, <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'is-end'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">ws.<span class="literal">on</span>(<span class="string">'finish'</span>, <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'ws-finish'</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">transformStream.<span class="literal">on</span>(<span class="string">'finish'</span>, <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'transformStream-finish'</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">transformStream.<span class="literal">on</span>(<span class="string">'end'</span>, <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'transformStream-end'</span>);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">is</span>.pipe(ws); <span class="regexp">//i</span>s-end-&gt;ws-finish</span><br><span class="line"><span class="keyword">is</span>.pipe(transformStream).pipe(ws); <span class="regexp">//</span> <span class="keyword">is</span>-end-&gt; transformStream-finish-&gt;transformStream-end-&gt;ws-finish</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -219,15 +203,15 @@
 
   
     
-    <h3 class="article-title"><a href="/2016/10/10/front-end-mvc/"><span>front-end-mvc</span></a></h3>
+    <h3 class="article-title"><a href="/2016/11/09/aws-lambda-setup/"><span>aws-lambda-setup</span></a></h3>
     
   
 
   <div class="article-top-meta">
     <span class="posted-on">
-      <a href="/2016/10/10/front-end-mvc/" rel="bookmark">
-        <time class="entry-date published" datetime="2016-10-10T07:30:07.000Z">
-          2016-10-10
+      <a href="/2016/11/09/aws-lambda-setup/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-11-09T06:33:25.000Z">
+          2016-11-09
         </time>
       </a>
     </span>
@@ -239,18 +223,7 @@
   <div class="article-content">
     <div class="entry">
       
-        <ol>
-<li>What is routing lib in the framework</li>
-<li>How do make component in the framework</li>
-<li>How to integrate with tranditional lib, e.g. jquery, jquery plugin</li>
-<li>Level of state for the component</li>
-<li>How to access parent state/global state</li>
-<li>How to make ajax call</li>
-<li>How to debug</li>
-<li>Easy to setup the development env</li>
-<li>Standard Technical Stack</li>
-<li>How to do internal UI transition, e.g. implment a step function</li>
-</ol>
+        <p>##Deploy code update through aws cli<br><a href="https://developer.amazon.com/public/community/post/Tx1UE9W1NQ0GYII/Publishing-Your-Skill-Code-to-Lambda-via-the-Command-Line-Interface" target="_blank" rel="external">https://developer.amazon.com/public/community/post/Tx1UE9W1NQ0GYII/Publishing-Your-Skill-Code-to-Lambda-via-the-Command-Line-Interface</a></p>
 
       
     </div>
@@ -276,15 +249,160 @@
 
   
     
-    <h3 class="article-title"><a href="/2016/09/18/onClick-onTouchTap/"><span>onClick-onTouchTap</span></a></h3>
+    <h3 class="article-title"><a href="/2016/11/09/mongolab-introduction/"><span>mongolab-introduction</span></a></h3>
     
   
 
   <div class="article-top-meta">
     <span class="posted-on">
-      <a href="/2016/09/18/onClick-onTouchTap/" rel="bookmark">
-        <time class="entry-date published" datetime="2016-09-18T06:48:08.000Z">
-          2016-09-18
+      <a href="/2016/11/09/mongolab-introduction/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-11-09T06:30:34.000Z">
+          2016-11-09
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>##Mongo lab support data api<br><a href="http://docs.mlab.com/data-api/#commands" target="_blank" rel="external">http://docs.mlab.com/data-api/#commands</a></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2016/11/09/aws-vpc/"><span>aws-vpc</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/11/09/aws-vpc/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-11-09T04:43:32.000Z">
+          2016-11-09
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>##How to create public subnet<br><a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-subnets-commands-example.html#vpc-subnets-commands-example-public-subnet" target="_blank" rel="external">http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-subnets-commands-example.html#vpc-subnets-commands-example-public-subnet</a></p>
+<p>##Use both public and private subnet<br><a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario2.html" target="_blank" rel="external">http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenario2.html</a></p>
+<p>##VPC senario<br><a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenarios.html" target="_blank" rel="external">http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Scenarios.html</a></p>
+<p>##NAT VS IGW<br><a href="https://www.reddit.com/r/aws/comments/4qzp38/difference_between_internet_gateway_and_nat/" target="_blank" rel="external">https://www.reddit.com/r/aws/comments/4qzp38/difference_between_internet_gateway_and_nat/</a></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2016/11/04/mongo-notes/"><span>mongo-notes</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/11/04/mongo-notes/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-11-04T02:03:27.000Z">
+          2016-11-04
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h3 id="Use_$set,_otherwise_you_will_overwrite_entire_doc">Use $set, otherwise you will overwrite entire doc</h3><p>Assume you want to update <code>field1</code> of a specfied doc.<br>The original doc<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attribute">field1</span>: <span class="string">'1'</span>,</span><br><span class="line">  <span class="attribute">field2</span>: <span class="string">'2'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>After<br><code>db[&#39;collectionA&#39;].update({_id: ObjectId(&#39;581af03f7c034749b01dd659&#39;)}, {field1: &#39;11&#39;)</code></p>
+<p>doc become, the original doc was overwritten entirely<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attribute">field1</span>: <span class="string">'11'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>###Query where value is not null<br>{field: { $ne : null}} // if filed non exists, return false</p>
+<p>###Query where file not exists<br>{field: { $exists: false}}</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2016/11/01/stripe-integration/"><span>stripe-integration</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/11/01/stripe-integration/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-11-01T06:37:02.000Z">
+          2016-11-01
         </time>
       </a>
     </span>
@@ -321,63 +439,15 @@
 
   
     
-    <h3 class="article-title"><a href="/2016/09/08/db-design-practice/"><span>db_design_practice</span></a></h3>
+    <h3 class="article-title"><a href="/2016/10/28/how-to-user-icon/"><span>how-to-user-icon</span></a></h3>
     
   
 
   <div class="article-top-meta">
     <span class="posted-on">
-      <a href="/2016/09/08/db-design-practice/" rel="bookmark">
-        <time class="entry-date published" datetime="2016-09-08T01:34:54.000Z">
-          2016-09-08
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <ol>
-<li>For bool field, if use int, dont’ use 0 to represent null, or allow NULL</li>
-</ol>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2016/09/06/react-code-split/"><span>react-code-split</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2016/09/06/react-code-split/" rel="bookmark">
-        <time class="entry-date published" datetime="2016-09-06T05:50:39.000Z">
-          2016-09-06
+      <a href="/2016/10/28/how-to-user-icon/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-10-28T02:36:57.000Z">
+          2016-10-28
         </time>
       </a>
     </span>
@@ -414,15 +484,15 @@
 
   
     
-    <h3 class="article-title"><a href="/2016/09/01/mysql-select-update/"><span>mysql-select-update</span></a></h3>
+    <h3 class="article-title"><a href="/2016/10/26/mongo-scale/"><span>mongo-scale</span></a></h3>
     
   
 
   <div class="article-top-meta">
     <span class="posted-on">
-      <a href="/2016/09/01/mysql-select-update/" rel="bookmark">
-        <time class="entry-date published" datetime="2016-09-01T02:11:47.000Z">
-          2016-09-01
+      <a href="/2016/10/26/mongo-scale/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-10-26T01:21:53.000Z">
+          2016-10-26
         </time>
       </a>
     </span>
@@ -434,109 +504,10 @@
   <div class="article-content">
     <div class="entry">
       
-        <p><a href="http://stackoverflow.com/questions/562693/mysql-update-and-select-in-one-pass" target="_blank" rel="external">http://stackoverflow.com/questions/562693/mysql-update-and-select-in-one-pass</a></p>
-<p><a href="http://stackoverflow.com/questions/5816062/is-mysql-query-containing-sub-query-atomic" target="_blank" rel="external">http://stackoverflow.com/questions/5816062/is-mysql-query-containing-sub-query-atomic</a></p>
-<p><a href="http://dev.mysql.com/doc/refman/5.7/en/storage-engines.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/storage-engines.html</a></p>
-<p><a href="http://stackoverflow.com/questions/2950676/difference-between-set-autocommit-1-and-start-transaction-in-mysql-have-i-misse" target="_blank" rel="external">http://stackoverflow.com/questions/2950676/difference-between-set-autocommit-1-and-start-transaction-in-mysql-have-i-misse</a></p>
-<p>关于不同数据库隔离<br><a href="http://blog.csdn.net/dong976209075/article/details/8802778" target="_blank" rel="external">http://blog.csdn.net/dong976209075/article/details/8802778</a></p>
-<p>隔离与锁<br><a href="http://www.zhihu.com/question/23242151/answer/59821385" target="_blank" rel="external">http://www.zhihu.com/question/23242151/answer/59821385</a></p>
-<p>how to make user mysql select for update to lock record<br><a href="http://stackoverflow.com/questions/6066205/when-using-mysqls-for-update-locking-what-is-exactly-locked" target="_blank" rel="external">http://stackoverflow.com/questions/6066205/when-using-mysqls-for-update-locking-what-is-exactly-locked</a></p>
-<p>SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;<br>START TRANSACTION;<br>SELECT * FROM t_intercept where Fevent_id=’2af0000000000002’ FOR UPDATE;<br>UPDATE t_intercept SET Fdeal_by=’ZZZ’ where  Fevent_id=’2af0000000000002’;<br>COMMIT;</p>
-<p><a href="http://dba.stackexchange.com/questions/15854/innodb-row-locking-how-to-implement" target="_blank" rel="external">http://dba.stackexchange.com/questions/15854/innodb-row-locking-how-to-implement</a></p>
-<p>数据库ID 生成策略<br><a href="http://www.ahlinux.com/mysql/11418.html" target="_blank" rel="external">http://www.ahlinux.com/mysql/11418.html</a></p>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2016/08/19/docker-iptables/"><span>docker-iptables</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2016/08/19/docker-iptables/" rel="bookmark">
-        <time class="entry-date published" datetime="2016-08-19T02:05:45.000Z">
-          2016-08-19
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>Below is the fresh iptables, after docker installed, plus 1 running container, without that container, the reference entry might gone<br><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">$  ~ docker ps</span><br><span class="line">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES</span><br><span class="line">e76435661eaf        registry:<span class="number">2</span>          <span class="string">"/entrypoint.sh /etc/"</span>   <span class="number">3</span> weeks ago         Up About a minute   <span class="number">0.0</span>.<span class="number">0.0</span>:<span class="number">6666</span>-&gt;<span class="number">5000</span>/tcp   registry</span><br><span class="line">$  ~ sudo iptables -L</span><br><span class="line">Chain INPUT (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination</span><br><span class="line"></span><br><span class="line">Chain FORWARD (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination</span><br><span class="line">DOCKER-ISOLATION  <span class="keyword">all</span>  <span class="comment">--  anywhere             anywhere</span></span><br><span class="line">DOCKER     <span class="keyword">all</span>  <span class="comment">--  anywhere             anywhere</span></span><br><span class="line">ACCEPT     <span class="keyword">all</span>  <span class="comment">--  anywhere             anywhere             ctstate RELATED,ESTABLISHED</span></span><br><span class="line">ACCEPT     <span class="keyword">all</span>  <span class="comment">--  anywhere             anywhere</span></span><br><span class="line">ACCEPT     <span class="keyword">all</span>  <span class="comment">--  anywhere             anywhere</span></span><br><span class="line"></span><br><span class="line">Chain OUTPUT (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination</span><br><span class="line"></span><br><span class="line">Chain DOCKER (<span class="number">1</span> references)</span><br><span class="line">target     prot opt source               destination</span><br><span class="line">ACCEPT     tcp  <span class="comment">--  anywhere             172.17.0.2           tcp dpt:commplex-main</span></span><br><span class="line"></span><br><span class="line">Chain DOCKER-ISOLATION (<span class="number">1</span> references)</span><br><span class="line">target     prot opt source               destination</span><br><span class="line"><span class="keyword">RETURN</span>     <span class="keyword">all</span>  <span class="comment">--  anywhere             anywhere</span></span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2016/08/18/nginx-selinx/"><span>nginx-selinx</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2016/08/18/nginx-selinx/" rel="bookmark">
-        <time class="entry-date published" datetime="2016-08-18T07:19:39.000Z">
-          2016-08-18
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>##</p>
-<p>When install ssl cert, encounter permission denied error, can be found in nginx/error.log. Caused by Selinux<br><a href="http://serverfault.com/questions/540537/nginx-permission-denied-to-certificate-files-for-ssl-configuration" target="_blank" rel="external">http://serverfault.com/questions/540537/nginx-permission-denied-to-certificate-files-for-ssl-configuration</a></p>
+        <p>##Sharding and Replication Set<br>Sharding can be used together with replication set</p>
+<p>##Offical doc outline the shared-cluster architecture<br><a href="https://docs.mongodb.com/manual/core/sharded-cluster-components/" target="_blank" rel="external">https://docs.mongodb.com/manual/core/sharded-cluster-components/</a></p>
+<p>##3rd parties service that support auto-scale<br><a href="https://help.compose.com/docs/compose-auto-scaling" target="_blank" rel="external">https://help.compose.com/docs/compose-auto-scaling</a><br>This service is more about scale the disk</p>
+<p>##分片详解<br><a href="http://blog.csdn.net/zhangzhebjut/article/details/16984229" target="_blank" rel="external">http://blog.csdn.net/zhangzhebjut/article/details/16984229</a></p>
 
       
     </div>

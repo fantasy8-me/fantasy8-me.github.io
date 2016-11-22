@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>mongo-notes | Oncemore</title>
+
+  
+  <meta name="author" content="Eric">
+  
+
+  
+  <meta name="description" content="Use $set, otherwise you will overwrite entire docAssume you want to update field1 of a specfied doc.The original doc1234&amp;#123;  field1: &#39;1&#39;,  field2: ">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="mongo-notes"/>
+
+  <meta property="og:site_name" content="Oncemore"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Oncemore" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Oncemore</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>mongo-notes</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/11/04/mongo-notes/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-11-04T02:03:27.000Z">
+          2016-11-04
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h3 id="Use_$set,_otherwise_you_will_overwrite_entire_doc">Use $set, otherwise you will overwrite entire doc</h3><p>Assume you want to update <code>field1</code> of a specfied doc.<br>The original doc<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attribute">field1</span>: <span class="string">'1'</span>,</span><br><span class="line">  <span class="attribute">field2</span>: <span class="string">'2'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>After<br><code>db[&#39;collectionA&#39;].update({_id: ObjectId(&#39;581af03f7c034749b01dd659&#39;)}, {field1: &#39;11&#39;)</code></p>
+<p>doc become, the original doc was overwritten entirely<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attribute">field1</span>: <span class="string">'11'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>###Query where value is not null<br>{field: { $ne : null}} // if filed non exists, return false</p>
+<p>###Query where file not exists<br>{field: { $exists: false}}</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2016 Eric
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

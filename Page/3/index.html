@@ -1,0 +1,564 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第 3 页 | Oncemore</title>
+
+  
+  <meta name="author" content="Eric">
+  
+
+  
+
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  
+
+  <meta property="og:site_name" content="Oncemore"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Oncemore" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Oncemore</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2016/09/08/db-design-practice/"><span>db_design_practice</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/09/08/db-design-practice/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-09-08T01:34:54.000Z">
+          2016-09-08
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <ol>
+<li>For bool field, if use int, dont’ use 0 to represent null, or allow NULL</li>
+</ol>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2016/09/06/react-code-split/"><span>react-code-split</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/09/06/react-code-split/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-09-06T05:50:39.000Z">
+          2016-09-06
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2016/09/01/mysql-select-update/"><span>mysql-select-update</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/09/01/mysql-select-update/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-09-01T02:11:47.000Z">
+          2016-09-01
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p><a href="http://stackoverflow.com/questions/562693/mysql-update-and-select-in-one-pass" target="_blank" rel="external">http://stackoverflow.com/questions/562693/mysql-update-and-select-in-one-pass</a></p>
+<p><a href="http://stackoverflow.com/questions/5816062/is-mysql-query-containing-sub-query-atomic" target="_blank" rel="external">http://stackoverflow.com/questions/5816062/is-mysql-query-containing-sub-query-atomic</a></p>
+<p><a href="http://dev.mysql.com/doc/refman/5.7/en/storage-engines.html" target="_blank" rel="external">http://dev.mysql.com/doc/refman/5.7/en/storage-engines.html</a></p>
+<p><a href="http://stackoverflow.com/questions/2950676/difference-between-set-autocommit-1-and-start-transaction-in-mysql-have-i-misse" target="_blank" rel="external">http://stackoverflow.com/questions/2950676/difference-between-set-autocommit-1-and-start-transaction-in-mysql-have-i-misse</a></p>
+<p>关于不同数据库隔离<br><a href="http://blog.csdn.net/dong976209075/article/details/8802778" target="_blank" rel="external">http://blog.csdn.net/dong976209075/article/details/8802778</a></p>
+<p>隔离与锁<br><a href="http://www.zhihu.com/question/23242151/answer/59821385" target="_blank" rel="external">http://www.zhihu.com/question/23242151/answer/59821385</a></p>
+<p>how to make user mysql select for update to lock record<br><a href="http://stackoverflow.com/questions/6066205/when-using-mysqls-for-update-locking-what-is-exactly-locked" target="_blank" rel="external">http://stackoverflow.com/questions/6066205/when-using-mysqls-for-update-locking-what-is-exactly-locked</a></p>
+<p>SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;<br>START TRANSACTION;<br>SELECT * FROM t_intercept where Fevent_id=’2af0000000000002’ FOR UPDATE;<br>UPDATE t_intercept SET Fdeal_by=’ZZZ’ where  Fevent_id=’2af0000000000002’;<br>COMMIT;</p>
+<p><a href="http://dba.stackexchange.com/questions/15854/innodb-row-locking-how-to-implement" target="_blank" rel="external">http://dba.stackexchange.com/questions/15854/innodb-row-locking-how-to-implement</a></p>
+<p>数据库ID 生成策略<br><a href="http://www.ahlinux.com/mysql/11418.html" target="_blank" rel="external">http://www.ahlinux.com/mysql/11418.html</a></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2016/08/19/docker-iptables/"><span>docker-iptables</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/08/19/docker-iptables/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-08-19T02:05:45.000Z">
+          2016-08-19
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>Below is the fresh iptables, after docker installed, plus 1 running container, without that container, the reference entry might gone<br><figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">$  ~ docker ps</span><br><span class="line">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES</span><br><span class="line">e76435661eaf        registry:<span class="number">2</span>          <span class="string">"/entrypoint.sh /etc/"</span>   <span class="number">3</span> weeks ago         Up About a minute   <span class="number">0.0</span>.<span class="number">0.0</span>:<span class="number">6666</span>-&gt;<span class="number">5000</span>/tcp   registry</span><br><span class="line">$  ~ sudo iptables -L</span><br><span class="line">Chain INPUT (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination</span><br><span class="line"></span><br><span class="line">Chain FORWARD (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination</span><br><span class="line">DOCKER-ISOLATION  <span class="keyword">all</span>  <span class="comment">--  anywhere             anywhere</span></span><br><span class="line">DOCKER     <span class="keyword">all</span>  <span class="comment">--  anywhere             anywhere</span></span><br><span class="line">ACCEPT     <span class="keyword">all</span>  <span class="comment">--  anywhere             anywhere             ctstate RELATED,ESTABLISHED</span></span><br><span class="line">ACCEPT     <span class="keyword">all</span>  <span class="comment">--  anywhere             anywhere</span></span><br><span class="line">ACCEPT     <span class="keyword">all</span>  <span class="comment">--  anywhere             anywhere</span></span><br><span class="line"></span><br><span class="line">Chain OUTPUT (policy ACCEPT)</span><br><span class="line">target     prot opt source               destination</span><br><span class="line"></span><br><span class="line">Chain DOCKER (<span class="number">1</span> references)</span><br><span class="line">target     prot opt source               destination</span><br><span class="line">ACCEPT     tcp  <span class="comment">--  anywhere             172.17.0.2           tcp dpt:commplex-main</span></span><br><span class="line"></span><br><span class="line">Chain DOCKER-ISOLATION (<span class="number">1</span> references)</span><br><span class="line">target     prot opt source               destination</span><br><span class="line"><span class="keyword">RETURN</span>     <span class="keyword">all</span>  <span class="comment">--  anywhere             anywhere</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2016/08/18/nginx-selinx/"><span>nginx-selinx</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/08/18/nginx-selinx/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-08-18T07:19:39.000Z">
+          2016-08-18
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>##</p>
+<p>When install ssl cert, encounter permission denied error, can be found in nginx/error.log. Caused by Selinux<br><a href="http://serverfault.com/questions/540537/nginx-permission-denied-to-certificate-files-for-ssl-configuration" target="_blank" rel="external">http://serverfault.com/questions/540537/nginx-permission-denied-to-certificate-files-for-ssl-configuration</a></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2016/08/18/gitlab-setup/"><span>gitlab-setup</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/08/18/gitlab-setup/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-08-18T02:47:50.000Z">
+          2016-08-18
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h3 id="Install_gitlab_docker">Install gitlab docker</h3><p> <a href="http://docs.gitlab.com/omnibus/docker/" target="_blank" rel="external">http://docs.gitlab.com/omnibus/docker/</a></p>
+<p>Using wrong config of GITLAB_OMNIBUS_CONFIG might cause the service can not start, i.e. can not access gitlab<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">docker run --detach \</span><br><span class="line">    -<span class="ruby">-hostname <span class="number">192.168</span>.<span class="number">3.105</span> \</span><br><span class="line"></span>    -<span class="ruby">-env <span class="constant">GITLAB_OMNIBUS_CONFIG</span>=<span class="string">"external_url 'http://192.168.3.105:9080'; gitlab_rails['lfs_enabled'] = true;"</span> \</span><br><span class="line"></span>    -<span class="ruby">-publish <span class="number">9443</span><span class="symbol">:</span><span class="number">443</span> --publish <span class="number">9080</span><span class="symbol">:</span><span class="number">80</span> --publish <span class="number">9022</span><span class="symbol">:</span><span class="number">22</span> \</span><br><span class="line"></span>    -<span class="ruby">-name gitlab \</span><br><span class="line"></span>    -<span class="ruby">-restart always \</span><br><span class="line"></span>    -<span class="ruby">-volume /home/reed/docker/gitlab/<span class="symbol">config:</span>/etc/gitlab \</span><br><span class="line"></span>    -<span class="ruby">-volume /home/reed/docker/gitlab/<span class="symbol">logs:</span>/var/log/gitlab \</span><br><span class="line"></span>    -<span class="ruby">-volume /home/reed/docker/gitlab/<span class="symbol">data:</span>/var/opt/gitlab \</span><br><span class="line"></span>    gitlab/gitlab-ce:latest</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker run --detach \</span><br><span class="line">    -<span class="ruby">-hostname <span class="number">192.168</span>.<span class="number">3.105</span> \</span><br><span class="line"></span>    -<span class="ruby">-publish <span class="number">9443</span><span class="symbol">:</span><span class="number">443</span> --publish <span class="number">9080</span><span class="symbol">:</span><span class="number">80</span> --publish <span class="number">9022</span><span class="symbol">:</span><span class="number">22</span> \</span><br><span class="line"></span>    -<span class="ruby">-name gitlab \</span><br><span class="line"></span>    -<span class="ruby">-restart always \</span><br><span class="line"></span>    -<span class="ruby">-volume /home/reed/docker/gitlab/<span class="symbol">config:</span>/etc/gitlab \</span><br><span class="line"></span>    -<span class="ruby">-volume /home/reed/docker/gitlab/<span class="symbol">logs:</span>/var/log/gitlab \</span><br><span class="line"></span>    -<span class="ruby">-volume /home/reed/docker/gitlab/<span class="symbol">data:</span>/var/opt/gitlab \</span><br><span class="line"></span>    gitlab/gitlab-ce:latest</span><br></pre></td></tr></table></figure>
+<p>sudo gitlab-rake gitlab:env:info</p>
+<p>docker-compose version<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">gitlab:</span><br><span class="line">  image: 'gitlab/gitlab-ce'</span><br><span class="line">  restart: always</span><br><span class="line">  hostname: 'gitlab.reedsec.com'</span><br><span class="line">  environment:</span><br><span class="line">    -<span class="ruby"> <span class="constant">GITLAB_OMNIBUS_CONFIG</span><span class="symbol">:</span> |</span><br><span class="line"></span>      external_url 'https://gitlab.reedsec.com:9443'</span><br><span class="line">      gitlab_rails['lfs_enabled'] = true</span><br><span class="line">      # Add any other gitlab.rb configuration options</span><br><span class="line">  ports:</span><br><span class="line">    -<span class="ruby"> <span class="string">'9443:443'</span></span><br><span class="line"></span>    -<span class="ruby"> <span class="string">'9080:80'</span></span><br><span class="line"></span>    -<span class="ruby"> <span class="string">'9022:22'</span></span><br><span class="line"></span>  volumes:</span><br><span class="line">    -<span class="ruby"> <span class="string">'/home/reed/docker/gitlab/config:/etc/gitlab'</span></span><br><span class="line"></span>    -<span class="ruby"> <span class="string">'/home/reed/docker/gitlab/logs:/var/log/gitlab'</span></span><br><span class="line"></span>    -<span class="ruby"> <span class="string">'/home/reed/docker/gitlab/data:/var/opt/gitlab'</span></span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Migrate_to_gitlab_docker">Migrate to gitlab docker</h3><p> <a href="https://blog.jscrambler.com/migrating-your-gitlab-infrastructure-into-docker/" target="_blank" rel="external">https://blog.jscrambler.com/migrating-your-gitlab-infrastructure-into-docker/</a></p>
+<ul>
+<li><p>we need to create the backup, to tell the backup path, checkout <code>config/gitlab.yml</code>(<code>embedded/service/gitlab-rails/config/gitlab.yml</code>) <a href="https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/raketasks/backup_restore.md" target="_blank" rel="external">https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/raketasks/backup_restore.md</a><br>Usually in /var/opt/gitlab/backups</p>
+</li>
+<li><p>fdsf</p>
+</li>
+</ul>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2016/08/18/docker-private-registry/"><span>docker-private-registry</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/08/18/docker-private-registry/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-08-18T02:35:30.000Z">
+          2016-08-18
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="Quick_Start">Quick Start</h2><h3 id="自签名证书">自签名证书</h3><p>As we might not have a formal cert signed by CA, we would have to use our own self-signed cert,</p>
+<p>We need to trust this cert in all our docker client(<a href="https://docs.docker.com/registry/insecure/" target="_blank" rel="external">https://docs.docker.com/registry/insecure/</a>)</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2015/11/19/Node-Stream-detect-binary-in-stream/"><span>Node - Stream - detect binary in stream</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2015/11/19/Node-Stream-detect-binary-in-stream/" rel="bookmark">
+        <time class="entry-date published" datetime="2015-11-19T06:38:43.000Z">
+          2015-11-19
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    throw new Error('Can\'t <span class="operator"><span class="keyword">set</span> headers <span class="keyword">after</span> they <span class="keyword">are</span> sent.<span class="string">');</span><br><span class="line">    ^</span><br><span class="line">Error: Can'</span><span class="keyword">t</span> <span class="keyword">set</span> headers <span class="keyword">after</span> they <span class="keyword">are</span> sent.</span><br><span class="line"><span class="keyword">at</span> ServerResponse.OutgoingMessage.setHeader (_http_outgoing.js:<span class="number">350</span>:<span class="number">11</span>)</span><br><span class="line"><span class="keyword">at</span> <span class="keyword">Object</span>.<span class="keyword">module</span>.exports.<span class="keyword">set</span> (/home/node_modules/koa/lib/response.js:<span class="number">436</span>:<span class="number">16</span>)</span><br><span class="line"><span class="keyword">at</span> <span class="keyword">Object</span>.proto.(anonymous <span class="keyword">function</span>) [<span class="keyword">as</span> <span class="keyword">set</span>] (/home/node_modules/koa/node_modules/delegates/<span class="keyword">index</span>.js:<span class="number">40</span>:<span class="number">31</span>)</span><br><span class="line"><span class="keyword">at</span> Transform.detectStream._flush (/home/src/api/controllers/<span class="keyword">storage</span>.js:<span class="number">122</span>:<span class="number">13</span>)</span><br><span class="line"><span class="keyword">at</span> Transform.&lt;anonymous&gt; (_stream_transform.js:<span class="number">118</span>:<span class="number">12</span>)</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2015/11/15/thinking-in-react-higher-order-component/"><span>Thinking in React - Higher Order Component</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2015/11/15/thinking-in-react-higher-order-component/" rel="bookmark">
+        <time class="entry-date published" datetime="2015-11-15T15:16:43.000Z">
+          2015-11-15
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> i</span> = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2015/11/15/thinking-in-react-state/"><span>Thinking in React - State</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2015/11/15/thinking-in-react-state/" rel="bookmark">
+        <time class="entry-date published" datetime="2015-11-15T15:15:20.000Z">
+          2015-11-15
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+
+<nav class="pagination">
+  
+  <a href="/page/2/" class="pagination-prev">上一页</a>
+  
+  
+  <a href="/page/4/" class="pagination-next">下一页</a>
+  
+</nav>
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2016 Eric
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

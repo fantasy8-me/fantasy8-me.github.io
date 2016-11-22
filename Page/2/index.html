@@ -59,15 +59,15 @@
 
   
     
-    <h3 class="article-title"><a href="/2016/08/18/gitlab-setup/"><span>gitlab-setup</span></a></h3>
+    <h3 class="article-title"><a href="/2016/10/18/daily-trouble-shooting/"><span>daily-trouble-shooting</span></a></h3>
     
   
 
   <div class="article-top-meta">
     <span class="posted-on">
-      <a href="/2016/08/18/gitlab-setup/" rel="bookmark">
-        <time class="entry-date published" datetime="2016-08-18T02:47:50.000Z">
-          2016-08-18
+      <a href="/2016/10/18/daily-trouble-shooting/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-10-18T03:16:38.000Z">
+          2016-10-18
         </time>
       </a>
     </span>
@@ -79,18 +79,83 @@
   <div class="article-content">
     <div class="entry">
       
-        <h3 id="Install_gitlab_docker">Install gitlab docker</h3><p> <a href="http://docs.gitlab.com/omnibus/docker/" target="_blank" rel="external">http://docs.gitlab.com/omnibus/docker/</a></p>
-<p>Using wrong config of GITLAB_OMNIBUS_CONFIG might cause the service can not start, i.e. can not access gitlab<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">docker run --detach \</span><br><span class="line">    -<span class="ruby">-hostname <span class="number">192.168</span>.<span class="number">3.105</span> \</span><br><span class="line"></span>    -<span class="ruby">-env <span class="constant">GITLAB_OMNIBUS_CONFIG</span>=<span class="string">"external_url 'http://192.168.3.105:9080'; gitlab_rails['lfs_enabled'] = true;"</span> \</span><br><span class="line"></span>    -<span class="ruby">-publish <span class="number">9443</span><span class="symbol">:</span><span class="number">443</span> --publish <span class="number">9080</span><span class="symbol">:</span><span class="number">80</span> --publish <span class="number">9022</span><span class="symbol">:</span><span class="number">22</span> \</span><br><span class="line"></span>    -<span class="ruby">-name gitlab \</span><br><span class="line"></span>    -<span class="ruby">-restart always \</span><br><span class="line"></span>    -<span class="ruby">-volume /home/reed/docker/gitlab/<span class="symbol">config:</span>/etc/gitlab \</span><br><span class="line"></span>    -<span class="ruby">-volume /home/reed/docker/gitlab/<span class="symbol">logs:</span>/var/log/gitlab \</span><br><span class="line"></span>    -<span class="ruby">-volume /home/reed/docker/gitlab/<span class="symbol">data:</span>/var/opt/gitlab \</span><br><span class="line"></span>    gitlab/gitlab-ce:latest</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker run --detach \</span><br><span class="line">    -<span class="ruby">-hostname <span class="number">192.168</span>.<span class="number">3.105</span> \</span><br><span class="line"></span>    -<span class="ruby">-publish <span class="number">9443</span><span class="symbol">:</span><span class="number">443</span> --publish <span class="number">9080</span><span class="symbol">:</span><span class="number">80</span> --publish <span class="number">9022</span><span class="symbol">:</span><span class="number">22</span> \</span><br><span class="line"></span>    -<span class="ruby">-name gitlab \</span><br><span class="line"></span>    -<span class="ruby">-restart always \</span><br><span class="line"></span>    -<span class="ruby">-volume /home/reed/docker/gitlab/<span class="symbol">config:</span>/etc/gitlab \</span><br><span class="line"></span>    -<span class="ruby">-volume /home/reed/docker/gitlab/<span class="symbol">logs:</span>/var/log/gitlab \</span><br><span class="line"></span>    -<span class="ruby">-volume /home/reed/docker/gitlab/<span class="symbol">data:</span>/var/opt/gitlab \</span><br><span class="line"></span>    gitlab/gitlab-ce:latest</span><br></pre></td></tr></table></figure>
-<p>sudo gitlab-rake gitlab:env:info</p>
-<p>docker-compose version<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">gitlab:</span><br><span class="line">  image: 'gitlab/gitlab-ce'</span><br><span class="line">  restart: always</span><br><span class="line">  hostname: 'gitlab.reedsec.com'</span><br><span class="line">  environment:</span><br><span class="line">    -<span class="ruby"> <span class="constant">GITLAB_OMNIBUS_CONFIG</span><span class="symbol">:</span> |</span><br><span class="line"></span>      external_url 'https://gitlab.reedsec.com:9443'</span><br><span class="line">      gitlab_rails['lfs_enabled'] = true</span><br><span class="line">      # Add any other gitlab.rb configuration options</span><br><span class="line">  ports:</span><br><span class="line">    -<span class="ruby"> <span class="string">'9443:443'</span></span><br><span class="line"></span>    -<span class="ruby"> <span class="string">'9080:80'</span></span><br><span class="line"></span>    -<span class="ruby"> <span class="string">'9022:22'</span></span><br><span class="line"></span>  volumes:</span><br><span class="line">    -<span class="ruby"> <span class="string">'/home/reed/docker/gitlab/config:/etc/gitlab'</span></span><br><span class="line"></span>    -<span class="ruby"> <span class="string">'/home/reed/docker/gitlab/logs:/var/log/gitlab'</span></span><br><span class="line"></span>    -<span class="ruby"> <span class="string">'/home/reed/docker/gitlab/data:/var/opt/gitlab'</span></span></span><br></pre></td></tr></table></figure></p>
-<h3 id="Migrate_to_gitlab_docker">Migrate to gitlab docker</h3><p> <a href="https://blog.jscrambler.com/migrating-your-gitlab-infrastructure-into-docker/" target="_blank" rel="external">https://blog.jscrambler.com/migrating-your-gitlab-infrastructure-into-docker/</a></p>
-<ul>
-<li><p>we need to create the backup, to tell the backup path, checkout <code>config/gitlab.yml</code>(<code>embedded/service/gitlab-rails/config/gitlab.yml</code>) <a href="https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/raketasks/backup_restore.md" target="_blank" rel="external">https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/raketasks/backup_restore.md</a><br>Usually in /var/opt/gitlab/backups</p>
-</li>
-<li><p>fdsf</p>
-</li>
-</ul>
+        <h2 id="How_to_clear_basic_authentication">How to clear basic authentication</h2><p><a href="http://stackoverflow.com/questions/5957822/how-to-clear-basic-authentication-details-in-chrome" target="_blank" rel="external">http://stackoverflow.com/questions/5957822/how-to-clear-basic-authentication-details-in-chrome</a></p>
+<h2 id="Get_legacy_babel_doc">Get legacy babel doc</h2><p><a href="https://developit.github.io/babel-legacy-docs//" target="_blank" rel="external">https://developit.github.io/babel-legacy-docs//</a></p>
+<p>##Encounter window is not defined when using extract text plugin<br><a href="http://stackoverflow.com/questions/28223040/window-not-defined-error-when-using-extract-text-webpack-plugin-react" target="_blank" rel="external">http://stackoverflow.com/questions/28223040/window-not-defined-error-when-using-extract-text-webpack-plugin-react</a></p>
+<p>##[remote rejected] master -&gt; master (pre-receive hook declined)<br>When the branch is marked as protected<br><a href="http://stackoverflow.com/questions/28318599/git-push-error-pre-receive-hook-declined" target="_blank" rel="external">http://stackoverflow.com/questions/28318599/git-push-error-pre-receive-hook-declined</a></p>
+<p>##Single Page Applicatoin 404 fallback in AWS S3<br><a href="https://kkob.us/2015/11/24/hosting-a-single-page-app-on-s3-with-proper-urls/" target="_blank" rel="external">https://kkob.us/2015/11/24/hosting-a-single-page-app-on-s3-with-proper-urls/</a></p>
+<p>##How to do giz in s3<br><a href="http://stackoverflow.com/questions/31801661/gzip-compression-on-amazon-s3-files-not-working" target="_blank" rel="external">http://stackoverflow.com/questions/31801661/gzip-compression-on-amazon-s3-files-not-working</a></p>
+<p>##Create a unique field in mongo and allow ‘null’<br><a href="http://stackoverflow.com/questions/7955040/mongodb-mongoose-unique-if-not-null" target="_blank" rel="external">http://stackoverflow.com/questions/7955040/mongodb-mongoose-unique-if-not-null</a></p>
+<p>##Passport authentiate will return a middleware, not a normal method<br>To invoke the middleware, we need to<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passport.<span class="function"><span class="title">autheticate</span><span class="params">(...)</span><span class="params">(req, res, next)</span></span> <span class="comment">//Express</span></span><br></pre></td></tr></table></figure></p>
+<p>##When visual studio code support object spread<br>It depends on when typescript support this<br><a href="https://github.com/Microsoft/vscode/issues/1974" target="_blank" rel="external">https://github.com/Microsoft/vscode/issues/1974</a></p>
+<p>##Print node error stack<br>console.trace() and console.error(error.stack) are not the same</p>
+<blockquote>
+<p>console.log(err.stack) and console.trace() do not give you same results. Whereas err.stack gives you the stack trace for the err object itself (functioning the way we all normally think of exceptions), console.trace() will print out the call stack at the point where console.trace() is being called. So if you catch some error being thrown by some deeper layer of code, console.trace() will not contain that deeper layer code in the stack trace since that code is no longer on the stack. However, console.log(err.stack) will contain the deeper layers as long as it threw an Error object. – user1334007 Feb 21 ‘13 at 18:10<br><a href="http://stackoverflow.com/questions/2923858/how-to-print-a-stack-trace-in-node-js" target="_blank" rel="external">http://stackoverflow.com/questions/2923858/how-to-print-a-stack-trace-in-node-js</a></p>
+</blockquote>
+<p>##no-unused-vars/jsx-uses-react triggered for JSX Tag<br><a href="https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-uses-vars.md" target="_blank" rel="external">https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-uses-vars.md</a></p>
+<p>##AWS-SKD sometimes doesn’t give clear error message<br>e.g. below problemetic code won’t give any error</p>
+<p>s3.getObject({key: ‘xx’}).createReadStream().on(‘error’, (err) =&gt;{console.error(err)}).pipe(fs.createWriteStream(‘pathtofile’))</p>
+<p>The param <code>key</code> should be <code>Key</code></p>
+<p>##Can not connect to elatiscache redis instance<br>Solve after assign a proper security group to the instance</p>
+<p>##Unable to install/upgarde aws cli through pip<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OSError: [Errno 1] Operation not permitted: '/var/folders/c3/xn7lnb2x6bb3413qvq135tt40000gn/T/pip-NsJxa7-<span class="operator"><span class="keyword">uninstall</span>/<span class="keyword">System</span>/<span class="keyword">Library</span>/Frameworks/Python.framework/<span class="keyword">Versions</span>/<span class="number">2.7</span>/Extras/lib/python/six-<span class="number">1.4</span><span class="number">.1</span>-py2<span class="number">.7</span>.egg-info<span class="string">'</span></span></span><br></pre></td></tr></table></figure></p>
+<p><a href="https://github.com/aws/aws-cli/issues/1522" target="_blank" rel="external">https://github.com/aws/aws-cli/issues/1522</a></p>
+<p>##mongoose promise won’t be executed without calling then<br>Normally, promise will be excuted after init, but the promise return by mongoose won’t be exeucte if you don’t call <code>then</code> or <code>catch</code><br>e.g. below code won’t be excuted at all<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ApiStats.<span class="keyword">update</span>(&#123;</span><br><span class="line">  dateymd</span><br><span class="line">&#125;, &#123;</span><br><span class="line">  <span class="variable">$inc</span>: &#123;</span><br><span class="line">    count: <span class="number">1</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, &#123;</span><br><span class="line">  upsert: true,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ApiStats.<span class="keyword">update</span>(&#123;</span><br><span class="line">  parseAppId,</span><br><span class="line">  dateymd</span><br><span class="line">&#125;, &#123;</span><br><span class="line">  <span class="variable">$inc</span>: &#123;</span><br><span class="line">    count: <span class="number">1</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, &#123;</span><br><span class="line">  upsert: true,</span><br><span class="line">&#125;).<span class="keyword">then</span>()</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2016/10/18/aws-dynamo-db/"><span>aws-dynamo-db</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/10/18/aws-dynamo-db/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-10-18T03:12:11.000Z">
+          2016-10-18
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="Introduction">Introduction</h2><p><a href="http://blog.csdn.net/blade2001/article/details/7783312" target="_blank" rel="external">http://blog.csdn.net/blade2001/article/details/7783312</a></p>
+<p>##APIReference<br><a href="http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html" target="_blank" rel="external">http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html</a><br><a href="http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB/DocumentClient.html" target="_blank" rel="external">http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB/DocumentClient.html</a></p>
+<p><a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.Modifying.html" target="_blank" rel="external">http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.Modifying.html</a></p>
+<h2 id="Global_and_Local_Secondary_Index">Global and Local Secondary Index</h2><p><a href="http://docs.aws.amazon.com/amazondynamodb/latest/gettingstartedguide/GettingStarted.JsShell.06.html" target="_blank" rel="external">http://docs.aws.amazon.com/amazondynamodb/latest/gettingstartedguide/GettingStarted.JsShell.06.html</a></p>
+<h2 id="Guide">Guide</h2><p><a href="http://docs.aws.amazon.com/amazondynamodb/latest/gettingstartedguide/GettingStarted.NodeJs.04.html" target="_blank" rel="external">http://docs.aws.amazon.com/amazondynamodb/latest/gettingstartedguide/GettingStarted.NodeJs.04.html</a></p>
+<p>(The local shell)<br><a href="http://docs.aws.amazon.com/amazondynamodb/latest/gettingstartedguide/GettingStarted.JsShell.html" target="_blank" rel="external">http://docs.aws.amazon.com/amazondynamodb/latest/gettingstartedguide/GettingStarted.JsShell.html</a></p>
+<p>##Why AttributeDefinitions is required<br><a href="http://stackoverflow.com/questions/30866030/number-of-attributes-in-key-schema-must-match-the-number-of-attributes-defined-i" target="_blank" rel="external">http://stackoverflow.com/questions/30866030/number-of-attributes-in-key-schema-must-match-the-number-of-attributes-defined-i</a></p>
+<p>##Query And Scan<br><a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html" target="_blank" rel="external">http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html</a></p>
+<p>##DocumentClient<br>DocumentClient is used to add item, but to describe table, need to use original Dynamo DB class<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> AWS = <span class="keyword">require</span>(<span class="string">"aws-sdk"</span>);</span><br><span class="line"></span><br><span class="line">AWS<span class="built_in">.</span>config<span class="built_in">.</span>update(&#123;</span><br><span class="line">  region: <span class="string">"us-west-2"</span>,</span><br><span class="line">  endpoint: <span class="string">"http://localhost:8000"</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">var</span> docClient = <span class="literal">new</span> AWS<span class="built_in">.</span>DynamoDB<span class="built_in">.</span>DocumentClient();</span><br><span class="line"></span><br><span class="line"><span class="attribute">...</span></span><br><span class="line">docClient<span class="built_in">.</span>query(param, (err, <span class="built_in">data</span>) =&gt;&#123;&#125;)</span><br><span class="line"><span class="attribute">...</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> AWS = <span class="built_in">require</span>(<span class="string">"aws-sdk"</span>);</span><br><span class="line"></span><br><span class="line">AWS.config.update(&#123;</span><br><span class="line">  region: <span class="string">"us-west-2"</span>,</span><br><span class="line">  endpoint: <span class="string">"http://localhost:8000"</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> dynamodb = <span class="keyword">new</span> AWS.DynamoDB();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> params = &#123;</span><br><span class="line">    TableName : <span class="string">"Movies"</span>,</span><br><span class="line">    KeySchema: [</span><br><span class="line">        &#123; AttributeName: <span class="string">"year"</span>, KeyType: <span class="string">"HASH"</span>&#125;,  <span class="comment">//Partition key</span></span><br><span class="line">        &#123; AttributeName: <span class="string">"title"</span>, KeyType: <span class="string">"RANGE"</span> &#125;  <span class="comment">//Sort key</span></span><br><span class="line">    ],</span><br><span class="line">    AttributeDefinitions: [</span><br><span class="line">        &#123; AttributeName: <span class="string">"year"</span>, AttributeType: <span class="string">"N"</span> &#125;,</span><br><span class="line">        &#123; AttributeName: <span class="string">"title"</span>, AttributeType: <span class="string">"S"</span> &#125;</span><br><span class="line">    ],</span><br><span class="line">    ProvisionedThroughput: &#123;</span><br><span class="line">        ReadCapacityUnits: <span class="number">10</span>,</span><br><span class="line">        WriteCapacityUnits: <span class="number">10</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">dynamodb.createTable(params, <span class="function"><span class="keyword">function</span>(<span class="params">err, data</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        <span class="built_in">console</span>.error(<span class="string">"Unable to create table. Error JSON:"</span>, <span class="built_in">JSON</span>.stringify(err, <span class="literal">null</span>, <span class="number">2</span>));</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Created table. Table description JSON:"</span>, <span class="built_in">JSON</span>.stringify(data, <span class="literal">null</span>, <span class="number">2</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="DataType">DataType</h2><p><a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBMapper.DataTypes.html" target="_blank" rel="external">http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBMapper.DataTypes.html</a></p>
 
       
     </div>
@@ -116,15 +181,15 @@
 
   
     
-    <h3 class="article-title"><a href="/2016/08/18/docker-private-registry/"><span>docker-private-registry</span></a></h3>
+    <h3 class="article-title"><a href="/2016/10/18/visual-studio-code/"><span>visual-studio-code</span></a></h3>
     
   
 
   <div class="article-top-meta">
     <span class="posted-on">
-      <a href="/2016/08/18/docker-private-registry/" rel="bookmark">
-        <time class="entry-date published" datetime="2016-08-18T02:35:30.000Z">
-          2016-08-18
+      <a href="/2016/10/18/visual-studio-code/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-10-18T02:36:56.000Z">
+          2016-10-18
         </time>
       </a>
     </span>
@@ -136,8 +201,10 @@
   <div class="article-content">
     <div class="entry">
       
-        <h2 id="Quick_Start">Quick Start</h2><h3 id="自签名证书">自签名证书</h3><p>As we might not have a formal cert signed by CA, we would have to use our own self-signed cert,</p>
-<p>We need to trust this cert in all our docker client(<a href="https://docs.docker.com/registry/insecure/" target="_blank" rel="external">https://docs.docker.com/registry/insecure/</a>)</p>
+        <h2 id="Parse_and_Indent(Format)">Parse and Indent(Format)</h2><p><a href="http://stackoverflow.com/questions/34627181/how-does-one-paste-and-indent-in-visual-studio-code/34764189#34764189" target="_blank" rel="external">http://stackoverflow.com/questions/34627181/how-does-one-paste-and-indent-in-visual-studio-code/34764189#34764189</a></p>
+<p>##Treact js as react<br>If you name react file with js extension, the jsx content can not be well formatted, you can change it to .jsx, but a better solution is to<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// Place your settings <span class="keyword">in</span> this file <span class="keyword">to</span> overwrite the <span class="keyword">default</span> settings</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"files.associations"</span>: &#123;</span><br><span class="line">        <span class="string">"*.js"</span>: <span class="string">"javascriptreact"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><a href="http://stackoverflow.com/questions/32832264/change-language-to-jsx-in-visual-studio-code" target="_blank" rel="external">http://stackoverflow.com/questions/32832264/change-language-to-jsx-in-visual-studio-code</a></p>
+<p>##How to change font-size outside editor, e.g. sidebar<br><a href="http://stackoverflow.com/questions/33701933/how-to-change-visual-studio-code-environment-font-size" target="_blank" rel="external">http://stackoverflow.com/questions/33701933/how-to-change-visual-studio-code-environment-font-size</a></p>
 
       
     </div>
@@ -163,15 +230,15 @@
 
   
     
-    <h3 class="article-title"><a href="/2015/11/19/Node-Stream-detect-binary-in-stream/"><span>Node - Stream - detect binary in stream</span></a></h3>
+    <h3 class="article-title"><a href="/2016/10/14/parse-server-sns-adapter/"><span>parse-server-sns-adapter</span></a></h3>
     
   
 
   <div class="article-top-meta">
     <span class="posted-on">
-      <a href="/2015/11/19/Node-Stream-detect-binary-in-stream/" rel="bookmark">
-        <time class="entry-date published" datetime="2015-11-19T06:38:43.000Z">
-          2015-11-19
+      <a href="/2016/10/14/parse-server-sns-adapter/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-10-14T01:20:59.000Z">
+          2016-10-14
         </time>
       </a>
     </span>
@@ -183,7 +250,8 @@
   <div class="article-content">
     <div class="entry">
       
-        <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    throw new Error('Can\'t <span class="operator"><span class="keyword">set</span> headers <span class="keyword">after</span> they <span class="keyword">are</span> sent.<span class="string">');</span><br><span class="line">    ^</span><br><span class="line">Error: Can'</span><span class="keyword">t</span> <span class="keyword">set</span> headers <span class="keyword">after</span> they <span class="keyword">are</span> sent.</span><br><span class="line"><span class="keyword">at</span> ServerResponse.OutgoingMessage.setHeader (_http_outgoing.js:<span class="number">350</span>:<span class="number">11</span>)</span><br><span class="line"><span class="keyword">at</span> <span class="keyword">Object</span>.<span class="keyword">module</span>.exports.<span class="keyword">set</span> (/home/node_modules/koa/lib/response.js:<span class="number">436</span>:<span class="number">16</span>)</span><br><span class="line"><span class="keyword">at</span> <span class="keyword">Object</span>.proto.(anonymous <span class="keyword">function</span>) [<span class="keyword">as</span> <span class="keyword">set</span>] (/home/node_modules/koa/node_modules/delegates/<span class="keyword">index</span>.js:<span class="number">40</span>:<span class="number">31</span>)</span><br><span class="line"><span class="keyword">at</span> Transform.detectStream._flush (/home/src/api/controllers/<span class="keyword">storage</span>.js:<span class="number">122</span>:<span class="number">13</span>)</span><br><span class="line"><span class="keyword">at</span> Transform.&lt;anonymous&gt; (_stream_transform.js:<span class="number">118</span>:<span class="number">12</span>)</span></span><br></pre></td></tr></table></figure>
+        <p>##How to setup<br><a href="https://github.com/parse-server-modules/parse-server-sns-adapter#setup" target="_blank" rel="external">https://github.com/parse-server-modules/parse-server-sns-adapter#setup</a></p>
+<p>##Trouble Shooting<br><a href="https://support.apple.com/en-us/HT203609" target="_blank" rel="external">https://support.apple.com/en-us/HT203609</a></p>
 
       
     </div>
@@ -209,15 +277,15 @@
 
   
     
-    <h3 class="article-title"><a href="/2015/11/15/thinking-in-react-higher-order-component/"><span>Thinking in React - Higher Order Component</span></a></h3>
+    <h3 class="article-title"><a href="/2016/10/13/aws-beanstalk/"><span>aws-beanstalk</span></a></h3>
     
   
 
   <div class="article-top-meta">
     <span class="posted-on">
-      <a href="/2015/11/15/thinking-in-react-higher-order-component/" rel="bookmark">
-        <time class="entry-date published" datetime="2015-11-15T15:16:43.000Z">
-          2015-11-15
+      <a href="/2016/10/13/aws-beanstalk/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-10-13T01:36:07.000Z">
+          2016-10-13
         </time>
       </a>
     </span>
@@ -229,7 +297,24 @@
   <div class="article-content">
     <div class="entry">
       
-        <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> i</span> = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+        <p>Use correct profile:<br>`eb init –proifle [your_profile]<br><a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-configuration.html" target="_blank" rel="external">http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-configuration.html</a></p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">➜  <span class="keyword">parse</span>-server-<span class="keyword">sample</span> git:(dev) ✗ eb init</span><br><span class="line"></span><br><span class="line">Select a default region</span><br><span class="line">1) <span class="keyword">us</span>-east-1 : <span class="keyword">US</span> East (<span class="keyword">N</span>. Virginia)</span><br><span class="line">2) <span class="keyword">us</span>-west-1 : <span class="keyword">US</span> West (<span class="keyword">N</span>. California)</span><br><span class="line">3) <span class="keyword">us</span>-west-2 : <span class="keyword">US</span> West (Oregon)</span><br><span class="line">4) eu-west-1 : EU (Ireland)</span><br><span class="line">5) eu-central-1 : EU (Frankfurt)</span><br><span class="line">6) <span class="keyword">ap</span>-south-1 : Asia Pacific (Mumbai)</span><br><span class="line">7) <span class="keyword">ap</span>-southeast-1 : Asia Pacific (Singapore)</span><br><span class="line">8) <span class="keyword">ap</span>-southeast-2 : Asia Pacific (Sydney)</span><br><span class="line">9) <span class="keyword">ap</span>-northeast-1 : Asia Pacific (Tokyo)</span><br><span class="line">10) <span class="keyword">ap</span>-northeast-2 : Asia Pacific (Seoul)</span><br><span class="line">11) <span class="keyword">sa</span>-east-1 : South America (Sao Paulo)</span><br><span class="line">12) cn-north-1 : China (Beijing)</span><br><span class="line">(default is 3):</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">It appears you are <span class="keyword">using</span> Docker. Is <span class="keyword">this</span> correct?</span><br><span class="line">(y/n): n</span><br><span class="line"></span><br><span class="line">Select a platform.</span><br><span class="line"><span class="number">1</span>) Node.js</span><br><span class="line"><span class="number">2</span>) PHP</span><br><span class="line"><span class="number">3</span>) Python</span><br><span class="line"><span class="number">4</span>) Ruby</span><br><span class="line"><span class="number">5</span>) Tomcat</span><br><span class="line"><span class="number">6</span>) IIS</span><br><span class="line"><span class="number">7</span>) Docker</span><br><span class="line"><span class="number">8</span>) Multi-container Docker</span><br><span class="line"><span class="number">9</span>) GlassFish</span><br><span class="line"><span class="number">10</span>) Go</span><br><span class="line"><span class="number">11</span>) Java</span><br><span class="line">(<span class="keyword">default</span> is <span class="number">1</span>):<span class="number">1</span></span><br><span class="line"></span><br><span class="line">Do you want to <span class="built_in">set</span> up SSH <span class="keyword">for</span> your instances?</span><br><span class="line">(y/n): y</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">➜  parse-server-sample git:(dev) ✗ eb <span class="operator"><span class="keyword">create</span></span><br><span class="line">Enter Environment <span class="keyword">Name</span></span><br><span class="line">(<span class="keyword">default</span> <span class="keyword">is</span> mvp-dev):</span><br><span class="line">Enter DNS CNAME prefix</span><br><span class="line">(<span class="keyword">default</span> <span class="keyword">is</span> mvp-dev):</span><br><span class="line"></span><br><span class="line"><span class="keyword">Select</span> a <span class="keyword">load</span> balancer <span class="keyword">type</span></span><br><span class="line"><span class="number">1</span>) classic</span><br><span class="line"><span class="number">2</span>) application</span><br><span class="line">(<span class="keyword">default</span> <span class="keyword">is</span> <span class="number">1</span>): <span class="number">1</span></span></span><br></pre></td></tr></table></figure>
+<p><a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html" target="_blank" rel="external">http://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html</a><br><a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/introduction.html" target="_blank" rel="external">http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/introduction.html</a></p>
+<p><a href="https://dzone.com/articles/choosing-the-right-load-balancer-on-amazon-aws-app" target="_blank" rel="external">https://dzone.com/articles/choosing-the-right-load-balancer-on-amazon-aws-app</a></p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2.0</span>+ Platforms <span class="built_in">require</span> <span class="operator">a</span> service role. We will attempt <span class="built_in">to</span> <span class="built_in">create</span> <span class="constant">one</span> <span class="keyword">for</span> you. You can specify your own role <span class="keyword">using</span> <span class="operator">the</span> <span class="comment">--service-role option.</span></span><br><span class="line">Type <span class="string">"view"</span> <span class="built_in">to</span> see <span class="operator">the</span> policy, <span class="operator">or</span> just press ENTER <span class="built_in">to</span> continue:</span><br></pre></td></tr></table></figure>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ERROR: <span class="keyword">[</span>Instance: i-1bcc26c7] Command failed on instance. Return code: 127 Output: /bin/sh: service: command<span class="instruction"> not </span>found.</span><br><span class="line">container_command 01_reload_nginx in .ebextensions/01_nginx.config failed. For more detail,<span class="instruction"> check </span>/var/log/eb-activity.log using console<span class="instruction"> or </span>EB CLI.</span><br></pre></td></tr></table></figure>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">ElasticBeanstalk::</span>ExternalInvocationError</span><br></pre></td></tr></table></figure>
+<p>when connect(ssh) to AWS, remember to provide a user name(eg. ec2-user for AWS Linux), other got ssh error(e.g. Permission denied (publickey).)</p>
+<p>How AWS CLI looking for credential<br><a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html" target="_blank" rel="external">http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html</a></p>
+<p>##Setup SSL for beanstalk<br><a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https.html" target="_blank" rel="external">http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https.html</a></p>
+<p>###Create ACM cert<br><a href="https://aws.amazon.com/certificate-manager/" target="_blank" rel="external">https://aws.amazon.com/certificate-manager/</a><br>OR</p>
+<p>###<br><a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https-ssl-upload.html" target="_blank" rel="external">http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https-ssl-upload.html</a><br><a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https-elb.html" target="_blank" rel="external">http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https-elb.html</a></p>
+<p>###Attache EBS to beanstalk<br><a href="https://aws.amazon.com/blogs/devops/customize-ephemeral-and-ebs-volumes-in-elastic-beanstalk-environments/" target="_blank" rel="external">https://aws.amazon.com/blogs/devops/customize-ephemeral-and-ebs-volumes-in-elastic-beanstalk-environments/</a><br>Has to be same zone, I think<br><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html" target="_blank" rel="external">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html</a></p>
+<p>###Node app installation path<br>/var/app/current</p>
+<p>###General Step for beanstalk env setup<br><code>eb create [env] --keyname key_name</code><br>//Specify key_name to overwrite the default key_name specified during <code>eb init</code><br>//If an application is created before, your app will be installed during env is being created</p>
+
       
     </div>
 
@@ -254,15 +339,234 @@
 
   
     
-    <h3 class="article-title"><a href="/2015/11/15/thinking-in-react-state/"><span>Thinking in React - State</span></a></h3>
+    <h3 class="article-title"><a href="/2016/10/11/node-env-setup/"><span>node-env-setup</span></a></h3>
     
   
 
   <div class="article-top-meta">
     <span class="posted-on">
-      <a href="/2015/11/15/thinking-in-react-state/" rel="bookmark">
-        <time class="entry-date published" datetime="2015-11-15T15:15:20.000Z">
-          2015-11-15
+      <a href="/2016/10/11/node-env-setup/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-10-11T08:30:28.000Z">
+          2016-10-11
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h3 id="如何加速phantomjs的下载">如何加速phantomjs的下载</h3><p>参考“<a href="https://cnodejs.org/topic/538ed941c3ee0b5820889f66”" target="_blank" rel="external">https://cnodejs.org/topic/538ed941c3ee0b5820889f66”</a></p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PHANTOMJS_CDNURL=<span class="attribute">https</span>:<span class="regexp">//</span><span class="built_in">npm</span>.taobao.org<span class="regexp">/dist/phantomjs npm install phantomjs --registry=https:/</span>/registry.<span class="built_in">npm</span>.taobao.org --<span class="literal">no</span>-proxy</span><br></pre></td></tr></table></figure>
+<h3 id="如何加速node-sass下载">如何加速node-sass下载</h3><p><a href="https://github.com/lmk123/blog/issues/28" target="_blank" rel="external">https://github.com/lmk123/blog/issues/28</a></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2016/10/11/create-react-app/"><span>create-react-app</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/10/11/create-react-app/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-10-11T07:36:08.000Z">
+          2016-10-11
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>What is Create React App? 就是 <a href="https://github.com/facebookincubator/create-react-app" target="_blank" rel="external">create-react-app</a></p>
+<p>为什么有这么多的<code>boilerplate</code>, <code>starter</code> project, facebook还要弄一个半官方的模版项目?</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator"><span class="keyword">Create</span> React apps <span class="keyword">with</span> <span class="keyword">no</span> <span class="keyword">build</span> configuration.</span><br><span class="line"></span><br><span class="line">创建一个不含“<span class="keyword">build</span> configuration”的React程序</span></span><br></pre></td></tr></table></figure>
+<p>什么是build configuration, 就是一开始用来帮助你提高效率，优化流程，但最后你又发现你看不明白的那些像程序又像配置的东西</p>
+<p>比如说像下面这些简单的<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">  <span class="string">"dev"</span>: <span class="string">"webpack-dev-server --config webpack/webpack-dev-server.config.js --progress"</span>,</span><br><span class="line">  <span class="string">"build"</span>: <span class="string">"NODE_ENV=production webpack --config webpack/webpack-production.config.js --progress --colors"</span>,</span><br><span class="line">  <span class="string">"docker-push"</span>: <span class="string">"docker push 192.168.3.105:6666/reedsec-dashboard_cust_wr"</span>,</span><br><span class="line">  <span class="string">"buildInt"</span>: <span class="string">"NODE_ENV=production APP_ENV=integration webpack --config webpack/webpack-production.config.js --progress --colors"</span>,</span><br><span class="line">  <span class="string">"lint"</span>: <span class="string">"eslint src &amp;&amp; echo \"</span>eslint: <span class="keyword">no</span> lint errors\<span class="string">""</span></span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
+<p>其实也不简单：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line">const webpack = require(<span class="string">'webpack'</span>);</span><br><span class="line">const path = require(<span class="string">'path'</span>);</span><br><span class="line">const buildPath = path.resolve(__dirname, <span class="string">'../build'</span>);</span><br><span class="line">const nodeModulesPath = path.resolve(__dirname, <span class="string">'../node_modules'</span>);</span><br><span class="line">const ExtractTextPlugin = require(<span class="string">'extract-text-webpack-plugin'</span>);</span><br><span class="line">const extractCSS = <span class="keyword">new</span> ExtractTextPlugin(<span class="string">'pleasewait/please-wait.css'</span>);</span><br><span class="line">const extractJS = <span class="keyword">new</span> ExtractTextPlugin(<span class="string">'pleasewait/please-wait.min.js'</span>);</span><br><span class="line">const autoprefixer = require(<span class="string">'autoprefixer'</span>);</span><br><span class="line"></span><br><span class="line">const config = &#123;</span><br><span class="line">  <span class="comment">// Entry points to the project</span></span><br><span class="line"><span class="label">  entry:</span> &#123;</span><br><span class="line"><span class="label">    app:</span> [</span><br><span class="line">      <span class="string">'webpack/hot/dev-server'</span>,</span><br><span class="line">      <span class="string">'webpack/hot/only-dev-server'</span>,</span><br><span class="line">      path.join(__dirname, <span class="string">'../src/main.js'</span>)</span><br><span class="line">    ],</span><br><span class="line"><span class="label">    vender:</span> [</span><br><span class="line">      <span class="string">'react'</span>,</span><br><span class="line">      <span class="string">'material-ui'</span>,</span><br><span class="line">      <span class="string">'react-flexbox-grid'</span>,</span><br><span class="line">      <span class="string">'react-redux'</span>,</span><br><span class="line">      <span class="string">'react-ace'</span>,</span><br><span class="line">      <span class="string">'classnames'</span>,</span><br><span class="line">      <span class="string">'react-dom'</span>,</span><br><span class="line">      <span class="string">'react-router'</span>,</span><br><span class="line">      <span class="string">'redux'</span>,</span><br><span class="line">      <span class="string">'superagent'</span></span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line"><span class="label">  debug:</span> <span class="literal">false</span>,</span><br><span class="line"><span class="label">  resolve:</span> &#123;</span><br><span class="line"><span class="label">    modulesDirectories:</span> [</span><br><span class="line">      <span class="string">'node_modules'</span>,</span><br><span class="line">      <span class="string">'src'</span></span><br><span class="line">    ],</span><br><span class="line"><span class="label">    extensions:</span> [<span class="string">''</span>, <span class="string">'.json'</span>, <span class="string">'.js'</span>, <span class="string">'.jsx'</span>]</span><br><span class="line">  &#125;,</span><br><span class="line"><span class="label">  devtool:</span> <span class="literal">false</span>,</span><br><span class="line"><span class="label">  output:</span> &#123;</span><br><span class="line"><span class="label">    path:</span> buildPath, <span class="comment">// Path of output file</span></span><br><span class="line"><span class="label">    filename:</span> <span class="string">'[name].js'</span>,</span><br><span class="line"><span class="label">    publicPath:</span> <span class="string">'http://localhost:3000/assets/'</span></span><br><span class="line">  &#125;,</span><br><span class="line"><span class="label">  plugins:</span> [</span><br><span class="line">    <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(&#123;</span><br><span class="line"><span class="label">      name:</span> <span class="string">'vender'</span>,</span><br><span class="line"><span class="label">      minChunks:</span> Infinity</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> webpack.HotModuleReplacementPlugin(),</span><br><span class="line">    <span class="comment">// Allows error warnings but does not stop compiling. Will remove when eslint is added</span></span><br><span class="line">    <span class="keyword">new</span> webpack.NoErrorsPlugin(),</span><br><span class="line">    extractCSS,</span><br><span class="line">    extractJS</span><br><span class="line">  ],</span><br><span class="line"><span class="label">  module:</span> &#123;</span><br><span class="line"><span class="label">    loaders:</span> [</span><br><span class="line">      &#123; <span class="string">test:</span> <span class="regexp">/please-wait\.css$/</span>, <span class="string">loader:</span> extractCSS.extract(<span class="string">'raw'</span>), <span class="string">include:</span> <span class="regexp">/please-wait/</span>&#125;,</span><br><span class="line">      &#123; <span class="string">test:</span> <span class="regexp">/please-wait\.min\.js$/</span>, <span class="string">loader:</span> extractJS.extract(<span class="string">'raw'</span>), <span class="string">include:</span> <span class="regexp">/please-wait/</span>&#125;,</span><br><span class="line">      &#123; <span class="string">test:</span> <span class="regexp">/\.js$/</span>, <span class="string">loaders:</span> [<span class="string">'react-hot'</span>, <span class="string">'babel-loader'</span>], <span class="string">exclude:</span> [nodeModulesPath] &#125;,</span><br><span class="line">      &#123; <span class="string">test:</span> <span class="regexp">/\.css$/</span>, <span class="string">loader:</span> <span class="string">'style!css?modules'</span>, <span class="string">include:</span> <span class="regexp">/flexboxgrid/</span> &#125;,</span><br><span class="line">      &#123; <span class="string">test:</span> <span class="regexp">/\.css$/</span>, <span class="string">loader:</span> <span class="string">'style!css'</span>, <span class="string">include:</span> <span class="regexp">/react-dropzone-component/</span> &#125;,</span><br><span class="line">      &#123; <span class="string">test:</span> <span class="regexp">/\.less$/</span>, <span class="string">loader:</span> <span class="string">'style!css?importLoaders=2&amp;sourceMap!postcss-loader!less?outputStyle=expanded&amp;sourceMap'</span>, <span class="string">exclude:</span> [nodeModulesPath] &#125;,</span><br><span class="line">      &#123; <span class="string">test:</span> <span class="regexp">/\.png(\?v=\d+\.\d+\.\d+)?$/</span>, <span class="string">loader:</span> <span class="string">'url?limit=10000&amp;minetype=application/octet-stream'</span>&#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line"><span class="label">  postcss:</span> [ autoprefixer(&#123; <span class="string">browsers:</span> [<span class="string">'last 2 versions'</span>] &#125;) ],</span><br><span class="line">  <span class="comment">// eslint config options. Part of the eslint-loader package</span></span><br><span class="line"><span class="label">  eslint:</span> &#123;</span><br><span class="line"><span class="label">    configFile:</span> <span class="string">'.eslintrc'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// Server Configuration options</span></span><br><span class="line"><span class="label">  devServer:</span> &#123;</span><br><span class="line"><span class="label">    contentBase:</span> <span class="string">'src/www'</span>, <span class="comment">// Relative directory for base of server</span></span><br><span class="line"><span class="label">    devtool:</span> <span class="string">'eval'</span>,</span><br><span class="line"><span class="label">    hot:</span> <span class="literal">true</span>, <span class="comment">// Live-reload</span></span><br><span class="line"><span class="label">    inline:</span> <span class="literal">true</span>,</span><br><span class="line"><span class="label">    noInfo:</span> <span class="literal">false</span>,</span><br><span class="line"><span class="label">    lazy:</span> <span class="literal">false</span>,</span><br><span class="line"><span class="label">    quite:</span> <span class="literal">false</span>,</span><br><span class="line"><span class="label">    port:</span> <span class="number">3000</span>, <span class="comment">// Port Number</span></span><br><span class="line"><span class="label">    host:</span> <span class="string">'0.0.0.0'</span>, <span class="comment">// Change to '0.0.0.0' for external facing server</span></span><br><span class="line"><span class="label">    historyApiFallback:</span> <span class="literal">true</span>,</span><br><span class="line"><span class="label">    publicPath:</span> <span class="string">'http://localhost:3000/assets/'</span>,</span><br><span class="line"><span class="label">    progress:</span> <span class="literal">true</span>,</span><br><span class="line"><span class="label">    stats:</span> &#123;</span><br><span class="line"><span class="label">      assets:</span> <span class="literal">true</span>,</span><br><span class="line"><span class="label">      colors:</span> <span class="literal">true</span>,</span><br><span class="line"><span class="label">      version:</span> <span class="literal">false</span>,</span><br><span class="line"><span class="label">      hash:</span> <span class="literal">true</span>,</span><br><span class="line"><span class="label">      timings:</span> <span class="literal">true</span>,</span><br><span class="line"><span class="label">      chunks:</span> <span class="literal">true</span>,</span><br><span class="line"><span class="label">      chunkModules:</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">module.exports = config;</span><br></pre></td></tr></table></figure></p>
+<p>还有更复杂的就不说，反正前端有一堆building的lib, 不同风格的building configuraiton 更是不计其数。</p>
+<p>如果’create-react-app’ 能解决这个痛点，倒是很不错的。</p>
+<p>主页的Readme中也有详细提及设计哲学，以及问什么要用它</p>
+<ol>
+<li>单一依赖，默认情况下，<code>react-scripts</code>是唯一的依赖， 其它像webpack, babel都会由<code>react-scripts</code>间接引入</li>
+<li>无需配置，实际是把大部分配置隐藏在 <code>react-scripts</code> 之中</li>
+</ol>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/tags/react-js/">react.js</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2016/10/10/docker-lambda-microservices/"><span>docker-lambda-microservices</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/10/10/docker-lambda-microservices/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-10-10T09:27:35.000Z">
+          2016-10-10
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="Compare_between_Lambda_and_Docker,_about_running_an_microservice">Compare between Lambda and Docker, about running an microservice</h2><p><a href="https://www.linkedin.com/pulse/docker-vs-aws-lambda-microservices-alan-ho" target="_blank" rel="external">docker vs lambda</a></p>
+<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The first API request <span class="keyword">is</span> always going <span class="keyword">to</span> <span class="keyword">take</span> a <span class="built_in">long</span> time because AWS lambda has <span class="keyword">to</span> load the underlying code libraries <span class="keyword">into</span> memory<span class="comment">'</span></span><br><span class="line"></span><br><span class="line">Therefore <span class="keyword">for</span> very low traffic scenarios, AWS Lambda could have lots <span class="keyword">of</span> variable performance.</span><br></pre></td></tr></table></figure>
+<h2 id="We_can_implement_lambda_like_feature_by_docker">We can implement lambda like feature by docker</h2><p><a href="https://github.com/fabric8io/funktion" target="_blank" rel="external">funktion is an open source lambda style event driven programming model for Kubernetes</a></p>
+<h2 id="Compare_of_different_docker_scale_framework">Compare of different docker scale framework</h2><p><a href="https://www.oreilly.com/ideas/swarm-v-fleet-v-kubernetes-v-mesos" target="_blank" rel="external">https://www.oreilly.com/ideas/swarm-v-fleet-v-kubernetes-v-mesos</a></p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2016/10/10/front-end-mvc/"><span>front-end-mvc</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/10/10/front-end-mvc/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-10-10T07:30:07.000Z">
+          2016-10-10
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <ol>
+<li>What is routing lib in the framework</li>
+<li>How do make component in the framework</li>
+<li>How to integrate with tranditional lib, e.g. jquery, jquery plugin</li>
+<li>Level of state for the component</li>
+<li>How to access parent state/global state</li>
+<li>How to make ajax call</li>
+<li>How to debug</li>
+<li>Easy to setup the development env</li>
+<li>Standard Technical Stack</li>
+<li>How to do internal UI transition, e.g. implment a step function</li>
+</ol>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+
+
+  <article>
+
+  
+    
+    <h3 class="article-title"><a href="/2016/09/18/onClick-onTouchTap/"><span>onClick-onTouchTap</span></a></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/09/18/onClick-onTouchTap/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-09-18T06:48:08.000Z">
+          2016-09-18
         </time>
       </a>
     </span>
@@ -275,107 +579,6 @@
     <div class="entry">
       
         
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2015/11/15/thinking-in-react-initial-render/"><span>Thinking in React - Initial Render</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2015/11/15/thinking-in-react-initial-render/" rel="bookmark">
-        <time class="entry-date published" datetime="2015-11-15T15:13:39.000Z">
-          2015-11-15
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/2015/10/17/react-native-android-setup/"><span>React Native Android Setup</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/2015/10/17/react-native-android-setup/" rel="bookmark">
-        <time class="entry-date published" datetime="2015-10-17T13:18:18.000Z">
-          2015-10-17
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <p>**React native 1.0</p>
-<ul>
-<li>Error in transformer.js, transformer.js is using some es6 feature which is not supported in node.js 0.12.x, replace those code with es5 syntax can solve the problem</li>
-<li>Can not install apk to device</li>
-<li>adb issue</li>
-<li>Cannot read property ‘root’ of null (<a href="https://github.com/facebook/react-native/issues/1875" target="_blank" rel="external">https://github.com/facebook/react-native/issues/1875</a>)</li>
-<li>sample app, issue <a href="http://stackoverflow.com/questions/19150017/ssl-error-when-installing-rubygems-unable-to-pull-data-from-https-rubygems-o" target="_blank" rel="external">http://stackoverflow.com/questions/19150017/ssl-error-when-installing-rubygems-unable-to-pull-data-from-https-rubygems-o</a></li>
-<li>unable to resolve class de.undercouch.gradle.tasks.download.Download<br>Error:(6, 0) Plugin with id ‘de.undercouch.download’ not found.<br><a href="openFile:/Users/me/Work/WS/sublime-master-ws/fs-react-native/fsprj5/android/ReactAndroid/build.gradle" target="_blank" rel="external">Open File</a></li>
-<li>In order to solve the</li>
-<li>React IOS xcode project depends on some lib in node_module/Libraries</li>
-</ul>
-
       
     </div>
 
@@ -401,6 +604,8 @@
   
   <a href="/" class="pagination-prev">上一页</a>
   
+  
+  <a href="/page/3/" class="pagination-next">下一页</a>
   
 </nav>
     </main>

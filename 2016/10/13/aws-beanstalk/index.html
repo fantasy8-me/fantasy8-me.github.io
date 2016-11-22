@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>aws-beanstalk | Oncemore</title>
+
+  
+  <meta name="author" content="Eric">
+  
+
+  
+  <meta name="description" content="Use correct profile:`eb init –proifle [your_profile]http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-configuration.html
+12345678910111213">
+  
+
+  
+  
+  <meta name="keywords" content="">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="aws-beanstalk"/>
+
+  <meta property="og:site_name" content="Oncemore"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Oncemore" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Oncemore</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>aws-beanstalk</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/10/13/aws-beanstalk/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-10-13T01:36:07.000Z">
+          2016-10-13
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <p>Use correct profile:<br>`eb init –proifle [your_profile]<br><a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-configuration.html" target="_blank" rel="external">http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-configuration.html</a></p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">➜  <span class="keyword">parse</span>-server-<span class="keyword">sample</span> git:(dev) ✗ eb init</span><br><span class="line"></span><br><span class="line">Select a default region</span><br><span class="line">1) <span class="keyword">us</span>-east-1 : <span class="keyword">US</span> East (<span class="keyword">N</span>. Virginia)</span><br><span class="line">2) <span class="keyword">us</span>-west-1 : <span class="keyword">US</span> West (<span class="keyword">N</span>. California)</span><br><span class="line">3) <span class="keyword">us</span>-west-2 : <span class="keyword">US</span> West (Oregon)</span><br><span class="line">4) eu-west-1 : EU (Ireland)</span><br><span class="line">5) eu-central-1 : EU (Frankfurt)</span><br><span class="line">6) <span class="keyword">ap</span>-south-1 : Asia Pacific (Mumbai)</span><br><span class="line">7) <span class="keyword">ap</span>-southeast-1 : Asia Pacific (Singapore)</span><br><span class="line">8) <span class="keyword">ap</span>-southeast-2 : Asia Pacific (Sydney)</span><br><span class="line">9) <span class="keyword">ap</span>-northeast-1 : Asia Pacific (Tokyo)</span><br><span class="line">10) <span class="keyword">ap</span>-northeast-2 : Asia Pacific (Seoul)</span><br><span class="line">11) <span class="keyword">sa</span>-east-1 : South America (Sao Paulo)</span><br><span class="line">12) cn-north-1 : China (Beijing)</span><br><span class="line">(default is 3):</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">It appears you are <span class="keyword">using</span> Docker. Is <span class="keyword">this</span> correct?</span><br><span class="line">(y/n): n</span><br><span class="line"></span><br><span class="line">Select a platform.</span><br><span class="line"><span class="number">1</span>) Node.js</span><br><span class="line"><span class="number">2</span>) PHP</span><br><span class="line"><span class="number">3</span>) Python</span><br><span class="line"><span class="number">4</span>) Ruby</span><br><span class="line"><span class="number">5</span>) Tomcat</span><br><span class="line"><span class="number">6</span>) IIS</span><br><span class="line"><span class="number">7</span>) Docker</span><br><span class="line"><span class="number">8</span>) Multi-container Docker</span><br><span class="line"><span class="number">9</span>) GlassFish</span><br><span class="line"><span class="number">10</span>) Go</span><br><span class="line"><span class="number">11</span>) Java</span><br><span class="line">(<span class="keyword">default</span> is <span class="number">1</span>):<span class="number">1</span></span><br><span class="line"></span><br><span class="line">Do you want to <span class="built_in">set</span> up SSH <span class="keyword">for</span> your instances?</span><br><span class="line">(y/n): y</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">➜  parse-server-sample git:(dev) ✗ eb <span class="operator"><span class="keyword">create</span></span><br><span class="line">Enter Environment <span class="keyword">Name</span></span><br><span class="line">(<span class="keyword">default</span> <span class="keyword">is</span> mvp-dev):</span><br><span class="line">Enter DNS CNAME prefix</span><br><span class="line">(<span class="keyword">default</span> <span class="keyword">is</span> mvp-dev):</span><br><span class="line"></span><br><span class="line"><span class="keyword">Select</span> a <span class="keyword">load</span> balancer <span class="keyword">type</span></span><br><span class="line"><span class="number">1</span>) classic</span><br><span class="line"><span class="number">2</span>) application</span><br><span class="line">(<span class="keyword">default</span> <span class="keyword">is</span> <span class="number">1</span>): <span class="number">1</span></span></span><br></pre></td></tr></table></figure>
+<p><a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html" target="_blank" rel="external">http://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html</a><br><a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/introduction.html" target="_blank" rel="external">http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/introduction.html</a></p>
+<p><a href="https://dzone.com/articles/choosing-the-right-load-balancer-on-amazon-aws-app" target="_blank" rel="external">https://dzone.com/articles/choosing-the-right-load-balancer-on-amazon-aws-app</a></p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2.0</span>+ Platforms <span class="built_in">require</span> <span class="operator">a</span> service role. We will attempt <span class="built_in">to</span> <span class="built_in">create</span> <span class="constant">one</span> <span class="keyword">for</span> you. You can specify your own role <span class="keyword">using</span> <span class="operator">the</span> <span class="comment">--service-role option.</span></span><br><span class="line">Type <span class="string">"view"</span> <span class="built_in">to</span> see <span class="operator">the</span> policy, <span class="operator">or</span> just press ENTER <span class="built_in">to</span> continue:</span><br></pre></td></tr></table></figure>
+<figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ERROR: <span class="keyword">[</span>Instance: i-1bcc26c7] Command failed on instance. Return code: 127 Output: /bin/sh: service: command<span class="instruction"> not </span>found.</span><br><span class="line">container_command 01_reload_nginx in .ebextensions/01_nginx.config failed. For more detail,<span class="instruction"> check </span>/var/log/eb-activity.log using console<span class="instruction"> or </span>EB CLI.</span><br></pre></td></tr></table></figure>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="label">ElasticBeanstalk::</span>ExternalInvocationError</span><br></pre></td></tr></table></figure>
+<p>when connect(ssh) to AWS, remember to provide a user name(eg. ec2-user for AWS Linux), other got ssh error(e.g. Permission denied (publickey).)</p>
+<p>How AWS CLI looking for credential<br><a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html" target="_blank" rel="external">http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html</a></p>
+<p>##Setup SSL for beanstalk<br><a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https.html" target="_blank" rel="external">http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https.html</a></p>
+<p>###Create ACM cert<br><a href="https://aws.amazon.com/certificate-manager/" target="_blank" rel="external">https://aws.amazon.com/certificate-manager/</a><br>OR</p>
+<p>###<br><a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https-ssl-upload.html" target="_blank" rel="external">http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https-ssl-upload.html</a><br><a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https-elb.html" target="_blank" rel="external">http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/configuring-https-elb.html</a></p>
+<p>###Attache EBS to beanstalk<br><a href="https://aws.amazon.com/blogs/devops/customize-ephemeral-and-ebs-volumes-in-elastic-beanstalk-environments/" target="_blank" rel="external">https://aws.amazon.com/blogs/devops/customize-ephemeral-and-ebs-volumes-in-elastic-beanstalk-environments/</a><br>Has to be same zone, I think<br><a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html" target="_blank" rel="external">http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html</a></p>
+<p>###Node app installation path<br>/var/app/current</p>
+<p>###General Step for beanstalk env setup<br><code>eb create [env] --keyname key_name</code><br>//Specify key_name to overwrite the default key_name specified during <code>eb init</code><br>//If an application is created before, your app will be installed during env is being created</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2016 Eric
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
